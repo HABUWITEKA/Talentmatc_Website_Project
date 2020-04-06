@@ -1,0 +1,81 @@
+body{
+	margin: 0;
+}
+.rectangle{
+	background: #34421E;
+	width: 580px;
+	height: 665px;
+}
+.rectangle p{
+	margin: 0;
+	font-size: 22px;
+	font-family: verdana;
+	top: 50%;
+	left: 50%;
+	position: relative;
+}
+.rectangle p a{
+	text-decoration: none;
+	color: #C19434;
+}
+.btn{
+	float: left;
+	margin-left: 425px;
+	margin-top: 220px;
+	border:none;
+	font-size: 25px;
+	font-family: verdana;
+	background-color: #C19434;
+	width: 300px;
+	height: 50px;
+	cursor: context-menu;
+}
+.btn:hover{
+	background-color: #F1F1EF;
+	color: #C19434;
+}
+.btn1{
+	left:200px;
+	top: 100px;
+	position: absolute;
+}
+.btn2{
+	left:600px;
+	top: 100px;
+	position: absolute;
+}
+
+/*Styling for forms to login for both employer and those seeking jobs*/
+#loginform{
+	top:260px;
+	left: 850px;
+	position: absolute;
+}
+input[type=email]{
+	border: none;
+	border-radius: 5px;
+	background-color: #F1F1EF;
+	width: 300px;
+	height: 40px;
+	font-family:verdana;
+	font-size: 13px; 
+}
+input[type=password]{
+	border: none;
+	border-radius: 5px;
+	background-color: #F1F1EF;
+	width: 300px;
+	height: 40px;
+	font-family:verdana;
+	font-size: 13px; 
+}
+input[type=submit]{
+	border: none;
+	background-color:#C19434 ;
+	font-family:verdana;
+	font-size: 18px;
+	margin-left: 120px;
+}
+input[type=submit]:hover{
+	background-color: #34421E;
+}

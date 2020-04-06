@@ -1,0 +1,1069 @@
+body{
+	margin: 0;
+	background: #F1F1EF;
+	overflow-x: hidden;
+}
+.alldiv{
+	transform: scale(.9,.9);
+}
+.menubar{
+	width: 250px;
+	height: 665px;
+	position: fixed;
+	background-color: #C19434;
+}
+
+.upperbar{
+	width: 1056px;
+	height: 50px;
+	left:310px;
+	position: fixed;
+	background-color: #34421E;
+	z-index: 100;
+}
+.upperbaropenpost{
+	width: 1366px;
+	height: 50px;
+	left:0px;
+	position: fixed;
+	background-color: #34421E;
+	z-index: 100;
+}
+.aboutme{
+	left: 270px;
+	top: 80px;
+	position: absolute;
+	width: 640px;
+	height: 300px;
+	background-color: #34421E;
+}
+.shortbio{
+    left: 1030px;
+    top:80px;
+    position: absolute;
+    background-color: #34421E;
+    width: 370px;
+    height: 300px;
+}
+.three{
+	width: 370px;
+    height: 300px;
+    float: left;
+    background-color: #34421E;
+    margin-left: 10px;
+    left:260px;
+    top: 420px;
+    position: relative;
+}
+
+/*Dashboard contents*/
+
+/*About me section*/
+.aboutme .aboutmeheading{
+	margin: 0;
+	left: 40%;
+	position:absolute;
+	font-family: verdana;
+	color: #C19434;
+}
+.aboutme .aboutmetext{
+	color: #F1F1EF;
+	font-family: verdana;
+	font-size: 17px;
+	top: 42px;
+	position: absolute;
+	letter-spacing: 1px;
+	line-height: 1.4em;
+	text-align: center;
+}
+/*Shortbio section*/
+.shortbio .profilepic{
+	width: 60px;
+	height: 60px;
+	border-radius: 100px;
+	left: 152px;
+	top: 10px;
+	position: absolute;
+}
+.shortbio .title{
+	margin-top: 30px;
+	top:80px;
+	left: 30px;
+	position: relative;
+	font-weight: bold;
+	font-size: 14px;
+	font-family: verdana;
+	color: #C19434;
+}
+.shortbio .title .content{
+    color: #F1F1EF;
+}
+.shortbio .name{
+	color: #C19434;
+	font-weight: bold;
+	font-family: verdana;
+	margin: 0;
+ 	position: absolute;
+ 	left: 50%;
+ 	top:85px;
+ 	margin-right: -50%;
+ 	transform: translate(-50%, -50%);
+
+}
+
+/*Three parts section*/
+.headings{
+	font-family: verdana;
+	font-size: 20px;
+	color: #C19434;
+	margin: 0;
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 4%;
+ 	margin-right: -50%;
+ 	transform: translate(-50%, -50%);
+
+}
+.three li{
+	margin-top: 20px;
+	top: 80px;
+	left: 50px;
+	font-size: 20px;
+	list-style-type:square;
+	position: relative;
+	font-family: verdana;
+	color: #F1F1EF;
+
+}
+input[type=text]{
+	top:7px;
+	left: 100px;
+	position: absolute;
+	border: none;
+	border-radius: 3px;
+	background-color: #F1F1EF;
+	width: 400px;
+	height: 30px;
+	font-family:verdana;
+	font-size: 13px; 
+}
+.logoutpic{
+	width: 35px;
+	height: 35px;
+	border-radius: 100px;
+	left: 960px;
+	top: 7px;
+	position: absolute;
+}
+.logoutpicopenpost{
+	width: 35px;
+	height: 35px;
+	border-radius: 100px;
+	left: 1260px;
+	top: 7px;
+	position: absolute;
+}
+/*Navigation Bar*/
+ .menubar nav a{
+ 	font-family: verdana;
+ 	color: #F1F1EF;
+ 	font-size: 18px;
+ 	text-decoration: none;
+ 	display: block;
+ 	margin-top: 40px;
+ 	top:60px;
+ 	left: 12px;
+ 	position: relative;
+ 	/*background-color: #34421E;*/
+ 	width: 238px;
+ 	height: 40px;
+ 	padding-left: 15px;
+ 	padding-top: 10px;
+ }
+ .menubar nav a:hover{
+ 	color: #C19434;
+ 	background: #F1F1EF;
+ }
+
+ .menubar nav .active{
+ 	color: #C19434;
+ 	background: #F1F1EF;
+ 	/*border-top-right-radius: 20px;*/
+ }
+ .active{
+ 	background: #F1F1EF;
+ 	/*border-top-right-radius: 20px;*/
+ }
+ .menubar nav{
+ 	left: -15px;
+ 	position: absolute;
+ }
+ .logo{
+    width: 80px;
+    height: 45px;
+    left: 72px;
+    top:10px;
+    position: absolute;
+ }
+ /*Sections styling*/
+
+ #Mydashboard{
+ 	display: block;
+ }
+ #MyApplications{
+ 	display: none;
+ }
+ #Jobopportunities{
+ 	display: none;
+ 	width: 1200px;
+ }
+ #Internshipopportunities{
+ 	display: none;
+ 	width: 1200px;
+ }
+ #Careerresources{
+ 	display: none;
+ }
+
+ /*jobsposting*/
+ #jobposting{
+ 	display: block;
+ }
+ #internshipposting{
+ 	display: block;
+ }
+
+ .jobposting{
+ 	width: 250px;
+ 	height: 250px;
+ 	border:1px ridge #808080;
+ 	border-radius: 5px;
+ 	top: 95px;
+ 	left: 295px;
+ 	position: relative;
+ 	
+ }
+ .jobposting:hover{
+ 	background-color: #34421E;
+ 	cursor: progress;
+ }
+ .job{
+ 	margin-left: 15px;
+ 	margin-top: 20px;
+ 	float: left;
+ 	/*transform: scale(.9,.9);*/
+ }
+
+ .jobimg{
+ 	width: inherit;
+ 	height:130px;
+ 	filter: grayscale();
+ }
+ .jobtitle{
+ 	color: #C19434;
+ 	font-weight: bold;
+ 	letter-spacing: 2px;
+ 	font-family: verdana;
+ 	font-size: 17px;
+ 	margin: 0;
+ 	top: 170px;
+ 	position: absolute;
+ 	transform: translate(-50%, -50%);
+ 	left: 50%;
+ 	margin-right: -50%;
+ 	text-align: center;
+
+ }
+ .jobdeadline{
+ 	font-family: verdana;
+ 	font-size: 11px;
+ 	color: #808080;
+ 	top: 220px;
+ 	left: 10px;
+ 	position: absolute;
+ }
+ .joblocation{
+    top: 200px;
+    left: 10px;
+    position: absolute;
+ 	font-size: 11px;
+ 	color: #808080;
+ 	font-family: verdana;
+ }
+ .next{
+ 	width: 20px;
+ 	height: 20px;
+ 	top: 227px;
+ 	left:220px;
+ 	position: absolute;
+ }
+ .next:hover{
+ 	transform: scale(.9,.9);
+ }
+ .apply{
+ 	color: #C19434;
+ 	font-size: 13px;
+ 	font-family: verdana;
+ 	font-weight: bold;
+ 	top:214px;
+ 	left:177px;
+ 	position: absolute;
+ }
+/*Internshipsposting*/
+
+ .internshipposting{
+ 	width: 250px;
+ 	height: 250px;
+ 	border:1px ridge #808080;
+ 	border-radius: 5px;
+ 	top: 95px;
+ 	left: 295px;
+ 	position: relative;
+
+ }
+ .internshipposting:hover{
+ 	background-color: #C19434;
+ 	cursor: progress;
+ }
+ .internship{
+ 	margin-left: 15px;
+ 	margin-top: 20px;
+ 	float: left;
+ 	/*transform: scale(.9,.9);*/
+ }
+
+ .internshipimg{
+ 	width: inherit;
+ 	height:130px;
+ 	filter: grayscale();
+ }
+ .internshiptitle{
+ 	color: #34421E;
+ 	font-weight: bold;
+ 	letter-spacing: 2px;
+ 	font-family: verdana;
+ 	font-size: 17px;
+ 	margin: 0;
+ 	top: 170px;
+ 	position: absolute;
+ 	transform: translate(-50%, -50%);
+ 	left: 50%;
+ 	margin-right: -50%;
+ 	text-align: center;
+ }
+ .internshipdeadline{
+ 	font-family: verdana;
+ 	font-size: 11px;
+ 	color: #808080;
+ 	top: 220px;
+ 	left: 10px;
+ 	position: absolute;
+ }
+ .internshiplocation{
+    top: 200px;
+    left: 10px;
+    position: absolute;
+ 	font-size: 11px;
+ 	color: #808080;
+ 	font-family: verdana;
+ }
+ .internshipnext{
+ 	width: 20px;
+ 	height: 20px;
+ 	top: 227px;
+ 	left:220px;
+ 	position: absolute;
+ }
+ .internshipnext:hover{
+ 	transform: scale(.9,.9);
+ }
+ .internshipapply{
+ 	color: #34421E;
+ 	font-size: 13px;
+ 	font-family: verdana;
+ 	font-weight: bold;
+ 	top:214px;
+ 	left:181px;
+ 	position: absolute;
+ }
+
+ /*Career resources section styling*/
+
+ .resource{
+ 	width: 300px ;
+ 	height: 250px;
+ 	background: white;
+ 	top: 75px;
+ 	left: 260px;
+ 	position: relative;
+ }
+ .career{
+ 	float: left;
+ 	margin-left: 50px;
+ 	margin-top: 20px;
+
+ }
+ .resourceimg{
+ 	top: 55px;
+ 	position: absolute;
+ 	left: 125px;
+ 	width: 50px;
+ 	height: 50px;
+ 	border-radius: 30px;
+ }
+ .resourcetitle{
+ 	font-family: verdana;
+ 	font-weight: bold;
+ 	font-size: 20px;
+ 	color: #C19434;
+ 	margin: 0;
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 30px;
+ 	margin-right: -50%;
+ 	transform: translate(-50%, -50%);
+ 	
+ }
+ .resourcedesc{
+ 	margin: 0;
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 150px;
+ 	margin-right: -50%;
+ 	transform: translate(-50%, -50%);
+ 	text-align: center;
+ 	font-family: verdana;
+ 	color: #808080;
+ 	font-size: 12px;
+ 	width: 270px;
+ }
+ .resourcedetail{
+ 	margin: 0;
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 220px;
+ 	margin-right: -50%;
+ 	transform: translate(-50%, -50%);
+ 	font-family: verdana;
+ 	color: #C19434;
+ 	font-size: 13px;
+ }
+ .btn{
+ 	border: none;
+ 	color: white;
+ 	padding:10px 15px;
+ 	text-align: center;
+ 	text-decoration: none;
+ 	display: inline-block;
+ 	font-size: 15px;
+ 	font-family: verdana;
+ 	background-color: #34421E;
+ 	margin: 0;
+ 	position: absolute;
+ 	left: 50%;
+ 	top: 50%;
+ 	margin-right: -50%;
+ 	transform: translate(-50%, -50%);
+ 	opacity: 0;
+ }
+ .resource:hover .alll{
+ 	opacity: .5;
+ }
+ .resource:hover .btn{
+ 	opacity: 1;
+ }
+ /*icons to use on the dashboard*/
+ .icon{
+     width: 40px;
+     height:15px;
+     left: -12px;
+     top: 2px;
+     position: relative;
+ }
+.edit{
+	font-weight: bold;
+	font-family: Verdana;
+	left: 615px;
+	top: -15px;
+	position: relative;
+	transform: scale(1.1,1.1);
+	opacity: .7;
+	cursor: hand;
+}
+.edit:hover{
+	opacity: 1;
+}
+.icon2{
+     width: 40px;
+     height:15px;
+     left: -12px;
+     top: 2px;
+     position: relative;
+ }
+.edit2{
+	font-weight: bold;
+	font-family: Verdana;
+	left: 332px;
+	top: -203px;
+	position: relative;
+	transform: scale(1.1,1.1);
+	opacity: .7;
+}
+.edit2:hover{
+	opacity: 1;
+}
+.icon3{
+     width: 40px;
+     height:15px;
+     left: -12px;
+     top: 2px;
+     position: relative;
+ }
+.edit3{
+	font-weight: bold;
+	font-family: Verdana;
+	left: 315px;
+	top: -145px;
+	position: relative;
+	/*transform: scale(1.1,1.1);*/
+	opacity: .7;
+}
+.edit3:hover{
+	opacity: 1;
+}
+.icon4{
+     width: 40px;
+     height:15px;
+     left: -12px;
+     top: 2px;
+     position: relative;
+ }
+.edit4{
+	font-weight: bold;
+	font-family: Verdana;
+	left: 288px;
+	top: -145px;
+	position: relative;
+	/*transform: scale(1.1,1.1);*/
+	opacity: .7;
+}
+.edit4:hover{
+	opacity: 1;
+}
+
+/*dropdown arrow to change settings of an account*/
+
+.arrow{
+	width: 10px;
+	height: 20px;
+	transform: scale(1.3,1.3);
+	left: 999px;
+	top: 15px;
+	position: relative;
+}
+.arrowopenpost{
+	width: 10px;
+	height: 20px;
+	transform: scale(1.3,1.3);
+	left: 1299px;
+	top: 15px;
+	position: relative;
+}
+#logout{
+	display: none;
+}
+.logoutoptions{
+	width: 100px;
+	height: 80px;
+	background-color: #C19434;
+	left: 919px;
+	top: 26px;
+	position:relative;
+}
+.logoutoptions nav a{
+	text-decoration: none;
+	font-family: Verdana;
+    width: 90px;
+    height: 30px;
+	font-size: 15px;
+	color: white;
+	display: inline-block;
+	margin-top: 10px;
+	padding-left: 10px;
+	padding-top: 10px;
+	top: -10px;
+	position: relative;
+}
+.logoutoptions nav .log{
+	background: #808080;
+}
+.logoutoptionsopenpost{
+	width: 100px;
+	height: 80px;
+	background-color: #C19434;
+	left: 1229px;
+	top: 26px;
+	position:relative;
+}
+.logoutoptionsopenpost nav a{
+	text-decoration: none;
+	font-family: Verdana;
+    width: 90px;
+    height: 30px;
+	font-size: 15px;
+	color: white;
+	display: inline-block;
+	margin-top: 10px;
+	padding-left: 10px;
+	padding-top: 10px;
+	top: -10px;
+	position: relative;
+}
+.logoutoptionsopenpost nav .log{
+	background: #808080;
+}
+/*editing forms divisions*/
+.editarea{
+    width: 300px;
+    height: 200px;
+    background-color: #34421E;
+    border-radius: 5px;
+    transform: scale(2,2);
+    top: 250px;
+    left: 670px;
+    position: fixed;
+    z-index: 1;
+    -moz-box-shadow :  3px 3px 10px 0 #000000;
+    -webkit-box-shadow :  3px 3px 10px 0 #000000;
+    box-shadow :  3px 3px 10px 2px #000000;
+}
+.editareabio{
+	height: 250px;
+}
+.editarea form{
+ 	transform: scale(.6,.6);
+ 	top: -20px;
+ 	left: -40px;
+ 	position: relative;
+}
+.editarea label{
+	font-family: verdana;
+	font-size: 15px;
+	color: #C19434;
+	top: 25px;
+	left: 100px;
+	position: relative;
+}
+.editarea .accountsettings label{
+	font-size: 14px;
+}
+.editarea .accountsettings .label1{
+	top: 8px;
+	left: 110px;
+	position: absolute;
+}
+.editarea .accountsettings .label2{
+	top: 8px;
+	left: 340px;
+	position: absolute;
+}
+.editarea .accountsettings .label3{
+	top: 80px;
+	left: 110px;
+	position: absolute;
+}
+.editarea .accountsettings .label4{
+	top: 162px;
+	left: 110px;
+	position: absolute;
+}
+.editarea .bioedit{
+	transform: scale(.6,.6);
+ 	top: -35px;
+ 	left: -40px;
+ 	position: relative;
+}
+.editarea .interestsedit{
+	transform: scale(.6,.6);
+ 	top: 10px;
+ 	left: -170px;
+ 	position: relative;
+ 	width: 600px;
+}
+.editarea .accountsettings{
+	transform: scale(.6,.6);
+	top: -10px;
+	left: -170px;
+	position: relative;
+	width: 600px;
+}
+
+.editarea form textarea{
+	left: 0px;
+	top: 0px;
+	position: relative;
+	width: 430px;
+	height: 230px;
+	resize: none;
+	border: none;
+    font-family: verdana;
+
+}
+
+.editarea form input[type=submit]{
+	margin-left: 190px;
+	border:none;
+	background-color: #C19434;
+	color: white;
+	font-size: 18px;
+	font-family: verdana;
+	padding: 5px 10px;
+}
+.editarea .bioedit input[type=submit]{
+	margin-left: 187px;
+	margin-top: 15px;
+	border:none;
+	background-color: #C19434;
+	color: white;
+	font-size: 18px;
+	font-family: verdana;
+	padding: 5px 10px;
+}
+.editarea .interestsedit input[type=submit]{
+	margin-left: 270px;
+	margin-top: 40px;
+	border:none;
+	background-color: #C19434;
+	color: white;
+	font-size: 18px;
+	font-family: verdana;
+	padding: 5px 10px;
+}
+.editarea .profileupdate input[type=submit]{
+	margin-left: 180px;
+	margin-top: 20px;
+	border:none;
+	background-color: #C19434;
+	color: white;
+	font-size: 18px;
+	font-family: verdana;
+	padding: 5px 10px;
+}
+
+.editarea .accountsettings input[type=submit]{
+	margin-left: 200px;
+	margin-top: 45px;
+	border:none;
+	background-color: #C19434;
+	color: white;
+	font-size: 18px;
+	font-family: verdana;
+	padding: 5px 10px;}
+
+.editarea .bioedit input[type=text]{
+	border: none;
+	border-radius: 5px;
+	background-color: #F1F1EF;
+	width: 250px;
+	height: 30px;
+	font-family:verdana;
+	font-size: 13px; 
+	margin-top: 20px;
+	position: relative;
+}
+.editarea .interestsedit input[type=text] {
+	border: none;
+	border-radius: 5px;
+	background-color: #F1F1EF;
+	width: 220px;
+	height: 40px;
+	font-family:verdana;
+	font-size: 13px; 
+	margin-top: 20px;
+	margin-left: 10px;
+	float: left;
+	position: relative;
+	font-size: 10px;
+}
+.editarea .interestsedit input[type=password] {
+	border: none;
+	border-radius: 5px;
+	background-color: #F1F1EF;
+	width: 220px;
+	height: 40px;
+	font-family:verdana;
+	font-size: 13px; 
+	margin-top: 40px;
+	margin-left: 10px;
+	float: left;
+	left: 100px;
+	position: relative;
+}
+.editarea .interestsedit input[type=tel] {
+	border: none;
+	border-radius: 5px;
+	background-color: #F1F1EF;
+	width: 220px;
+	height: 40px;
+	font-family:verdana;
+	font-size: 13px; 
+	margin-top: 40px;
+	margin-left: 10px;
+	float: left;
+	left: 100px;
+	position: relative;
+	font-size: 13px;
+}
+
+.editarea .profileupdate input[type=file]{
+	border: none;
+	border-radius: 5px;
+	background-color: #F1F1EF;
+	width: 220px;
+	height: 40px;
+	font-family:verdana;
+	font-size: 13px; 
+	margin-top: 40px;
+	margin-left: 105px;
+	float: left;
+	position: relative;
+}
+
+.editarea .bioedit select{
+	border: none;
+	border-radius: 5px;
+	background-color: #F1F1EF;
+	width: 250px;
+	height: 30px;
+	font-family:verdana;
+	font-size: 13px; 
+	margin-top: 25px;
+	margin-left: 100px;
+	position: relative;
+}
+
+.editarea p{
+	margin: 0;
+ 	position: absolute;
+ 	left: 50%;
+ 	top:10%;
+ 	margin-right: -50%;
+ 	transform: translate(-50%, -50%);
+ 	font-family: verdana;
+ 	font-size: 12px;
+ 	color: white;
+}
+#aboutmeedit{
+	display: none;
+}
+#bioedit{
+	display: none;
+}
+#interestsedit{
+	display: none;
+}
+#skillsedit{
+	display: none;
+}
+
+/*Profile picture change*/
+
+.changepp{
+	top: 30px;
+	left: 173px;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	display: none;
+	transform: scale(2,2);
+}
+
+.profile:hover .profilepic{
+	opacity: .3;
+}
+.profile:hover .changepp{
+	display: block;
+}
+.editprofile{
+	
+	height: 100px;
+}
+#profileedit{
+	display: none;
+}
+#accountsettings{
+	display: none;
+}
+
+table{
+	font-family: Verdana;
+	border-collapse: collapse;
+	width: 76%;
+	top: 180px;
+	left: 310px;
+	position: relative;
+	border-bottom: 3px solid #ddd;
+	border-right: 3px solid #eee;
+	border-left: 3px solid #eee;
+	box-shadow: 2px 2px 2px #404948;
+
+}
+table tr {
+  background-color: #F1F1F1;
+  border: 1px solid #ddd;
+  padding: .35em;
+  }
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background-color: #34421E;
+  color: #C19434;
+}
+table tr td:last-child{
+    opacity: .7;
+    color: #808080;
+    background-color: #F1F1EF;
+}
+table tr td:first-child{
+	width: 400px;
+	text-align: center;
+}
+/*Job posting tself on click on apply*/
+#jobposter{
+	/*display: none;*/
+}
+#internshipposter{
+	display: none;
+}
+
+.jobposter{
+	width: 800px;
+	height: 1200px;
+	background-color: white;
+	left: 280px;
+	top: 100px;
+	position: relative;
+	border:2px solid #34421E;
+}
+.design{
+	width: 800px;
+	height: 150px;
+	background-color: #C19434;
+}
+.design img{
+	width: 80px;
+	height: 80px;
+	border-radius: 90px;
+	margin:0;
+	position: absolute;
+	left: 50%;
+	top: 70px;
+	margin-right: -50%;
+	transform: translate(-50%, 50%);
+	opacity: 1;
+}
+.jobposter a {
+	left: 1100px;
+	position: fixed;
+	text-decoration: none;
+	color: #34421E;
+	font-family:bungee;
+	font-size: 11px;
+	width: 300px;
+}
+.design .jobtitlee{
+	margin:0;
+	position: relative;
+	left: 50%;
+	top: 30px;
+	margin-right: 50%;
+	transform: translate(-50%, -50%);
+	font-family: Verdana;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+}
+.design .desc{
+	font-family: Verdana;
+	font-size: 12px;
+	color: #F1F1F1;
+	top: 10px;
+	left: 20px;
+	position: relative;
+}
+.jobposter h1{
+	font-family: Verdana;
+	font-size: 20px;
+	color: #808080;
+	margin:0;
+	position: absolute;
+	left: 50%;
+	top: 220px;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+}
+.jobposter  .doc{
+	font-family: Verdana;
+	font-size: 30px;
+	color: #808080;
+	margin:0;
+	position: absolute;
+	left: 50%;
+	top: 1000px;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+}
+.jobposter iframe{
+	top: 90px;
+	position: relative;
+	width: 800px;
+	height: 700px;
+	border: none;
+
+}
+.jobposter form{
+	top: 190px;
+	position: relative;
+}
+.jobposter form .label{
+	margin-left: 30px;
+	float: left;
+	left: 65px;
+	position: relative;
+	font-family: Verdana;
+	width: 300px;
+}
+.jobposter form input[type=file]{
+	border: none;
+	border-radius: 5px;
+	background-color: #C19434;
+	width: 220px;
+	height: 40px;
+	font-family:verdana;
+	font-size: 13px; 
+	margin-top: 20px;
+	margin-left: 100px;
+	float: left;
+	position: relative;
+}
+
+.jobposter form input[type=submit]{
+	margin-left: 0px;
+	margin-top: 35px;
+	border:none;
+	background-color: #C19434;
+	color: white;
+	font-size: 18px;
+	font-family: verdana;
+	padding: 10px 368px;}
+
+#update

@@ -1,0 +1,224 @@
+
+body{
+	margin: 0;
+}
+.rectangle{
+	background: #C19434;
+	width: 580px;
+	height: 665px;
+}
+.rectangle p{
+	margin: 0;
+	font-size: 20px;
+	font-family: verdana;
+	top: 50%;
+	left: 45%;
+	position: relative;
+}
+.rectangle p a{
+	text-decoration: none;
+	color: #34421E;
+}
+.progressline{
+	background-color: #C19434;
+	width: 200px;
+	height: 3px;
+	left:700px;
+	top:100px;
+	position: absolute;
+}
+.step{
+	font-family: verdana;
+	font-size: 30px;
+	letter-spacing: 2px;
+	left:870px;
+	top: 160px;
+	position: absolute;
+	border-bottom: 2px solid #C19434;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+.step2{
+	font-family: verdana;
+	font-size: 30px;
+	letter-spacing: 2px;
+	left:860px;
+	top: 120px;
+	position: absolute;
+	border-bottom: 2px solid #C19434;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+.step2company{
+	font-family: verdana;
+	font-size: 30px;
+	letter-spacing: 2px;
+	left:840px;
+	top: 120px;
+	position: absolute;
+	border-bottom: 2px solid #C19434;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+.step3{
+	font-family: verdana;
+	font-size: 30px;
+	letter-spacing: 2px;
+	left:820px;
+	top: 160px;
+	position: absolute;
+	border-bottom: 2px solid #C19434;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+#registerform{
+    top:260px;
+	left: 840px;
+	position: absolute;
+}
+#step2form{
+	top: 220px;
+	left: 840px;
+	position: absolute;
+}
+#step2formcompany{
+	top: 220px;
+	left: 820px;
+	position: absolute;
+}
+#step3form{
+	top: 260px;
+	left: 830px;
+	position: absolute;
+}
+input[type=email]{
+	border: none;
+	border-radius: 5px;
+	background-color: #F1F1EF;
+	width: 330px;
+	height: 40px;
+	font-family:verdana;
+	font-size: 13px; 
+}
+input[type=password]{
+	border: none;
+	border-radius: 5px;
+	background-color: #F1F1EF;
+	width: 330px;
+	height: 40px;
+	font-family:verdana;
+	font-size: 13px; 
+}
+input[type=text]{
+	border: none;
+	border-radius: 5px;
+	background-color: #F1F1EF;
+	width: 330px;
+	height: 40px;
+	font-family:verdana;
+	font-size: 13px; 
+}
+input[type=Month]{
+	border: none;
+	border-radius: 5px;
+	background-color: #F1F1EF;
+	width: 330px;
+	height: 40px;
+	font-family:verdana;
+	font-size: 13px; 
+}
+input[type=file]{
+	border: none;
+	border-radius: 5px;
+	background-color: #F1F1EF;
+	width: 330px;
+	height: 40px;
+	font-family:verdana;
+	font-size: 13px; 
+}
+label{
+	font-family:verdana;
+	font-size: 13px; 
+	font-weight: bold;
+}
+.next{
+	border: none;
+	background-color:#34421E ;
+	font-family:verdana;
+	font-size: 18px;
+	top: 450px;
+	left:1098px;
+	position: absolute;
+}
+.nextcompany{
+	border: none;
+	background-color:#34421E ;
+	font-family:verdana;
+	font-size: 18px;
+	top: 150px;
+	left:960px;
+	position: absolute;
+}
+.finish{
+	top:350px;
+	left:1060px;
+	position: absolute;
+}
+#next1{
+	display: block;
+}
+#next2{
+	display: none;
+	top:520px;
+	left: 40px;
+	position: absolute;
+}
+#back1{
+	display: none;
+}
+#back2{
+	display: none;
+}
+.back1{
+	display: none;
+	top: -145px;
+	left: 860px;
+	position: relative;
+}
+.back2{
+	display: none;
+	top: -314px;
+	left: 860px;
+	position: relative;
+}
+#next2company{
+	display: none;
+	top:470px;
+	left: 1080px;
+	position: absolute;
+}
+#back1company{
+	display: none;
+	left: 840px;
+	top: 470px;
+	position: absolute;
+}
+#back2company{
+	display: none;
+	top: 350px;
+	left: 860px;
+	position: absolute;
+}
+
+#Step1{
+	display: block;
+}
+#Step2{
+	display: none;
+}
+#Step2company{
+	display: none;
+}
+#Step3{
+	display: none;
+}
