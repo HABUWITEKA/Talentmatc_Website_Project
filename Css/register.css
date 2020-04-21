@@ -169,12 +169,15 @@ label{
 }
 #next2{
 	display: none;
-	top:520px;
-	left: 40px;
+	top: 520px;
 	position: absolute;
+	
 }
 #back1{
 	display: none;
+	top:520px;
+	left: 850px;
+	position: absolute;
 }
 #back2{
 	display: none;
@@ -182,7 +185,7 @@ label{
 .back1{
 	display: none;
 	top: -145px;
-	left: 860px;
+	left: 1100px;
 	position: relative;
 }
 .back2{
@@ -221,4 +224,14 @@ label{
 }
 #Step3{
 	display: none;
+}
+.errorregister{
+	font-family: verdana;
+	font-size: 13px;
+	font-weight: bold;
+	color: red;
+	opacity: .7;
+	top: -160px;
+	left: 40px;
+	position: absolute;
 }

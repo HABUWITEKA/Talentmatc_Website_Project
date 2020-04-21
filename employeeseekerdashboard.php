@@ -43,6 +43,7 @@ $roww = mysqli_fetch_assoc($queryy);
 
 <!-- This is the account setting that will appear when the companyuser clicks on the My account -->
 <div class="editarea accounts" id="accountsettings">
+	<img src="img/close.png" class="closeimg close2" onclick="close2()">
 	<p>Company Account Settings</p>
 <form class="accountsettings interestsedit" method="post">	
 	<label class="label1">Company Name</label>
@@ -68,6 +69,7 @@ $roww = mysqli_fetch_assoc($queryy);
 </div>
 <!-- Edit for the above section -->
 <div class="editarea" id="aboutmeedit">
+	<img src="img/close.png" class="closeimg close2" onclick="close2()">
 	<p>Edit your About me (Max. 100 words)</p>
 		<form method="post">
 			<textarea onchange="maximumwords(this)" name="whoweareupdate">
@@ -91,6 +93,7 @@ $roww = mysqli_fetch_assoc($queryy);
 </div>
 <!-- Edit section of the profle picture only and only -->
 <div class="editarea editprofile" id="profileedit">
+	<img src="img/close.png" class="closeimg close2" onclick="close2()">
 	<p>Upload your company logo</p>
 	<form class="profileupdate" method="post" enctype="multipart/form-data">
 		<input type="file" name="updatepp" id="updatepp" accept="image/*">
@@ -99,6 +102,7 @@ $roww = mysqli_fetch_assoc($queryy);
 </div>
 <!-- Edit section for the above section i.e short bio -->
 <div class="editarea editareabio" id="bioedit">
+	<img src="img/close.png" class="closeimg close2" onclick="close3()">
 	<p>Update your biography</p>
 		<form class="bioedit" method="post">
 			<label>Industry</label>
@@ -119,6 +123,7 @@ $roww = mysqli_fetch_assoc($queryy);
 </div>
 <!-- Edit for the above section -->
 <div class="editarea" id="interestsedit">
+	<img src="img/close.png" class="closeimg close2" onclick="close2()">
 	<p>Our Mission</p>
 		<form method="post">
 			<textarea onchange="maximumwords(this)" name="ourmission">
@@ -129,12 +134,12 @@ $roww = mysqli_fetch_assoc($queryy);
 	</div>
 <div class="three">
 	<h1 class="headings">Our Vision</h1>
-	
 	<p class="edit3" onclick="skilledit()">edit<span><img class="icon3" src="img/edit.svg"></span></p>
 	<p class="vision"><?php echo $row['vision'] ?></p>
 </div>
 <!-- Edit for the above section -->
 <div class="editarea" id="skillsedit">
+	<img src="img/close.png" class="closeimg close2" onclick="close2()">
 	<p>Our Vision</p>
 		<form method="post">
 			<textarea onchange="maximumwords(this)" name="ourvision">
@@ -190,7 +195,7 @@ $roww = mysqli_fetch_assoc($queryy);
              <input type="hidden" name="ID" value="<?php echo $mydata['ID']; ?>">
              <input type="submit" name="Deletejob" value="Delete" class="btn">
                 </form>
-             <a href="updatepost.php?ID=<?php echo $mydata['ID'] ?>">Update</a>
+             <a href="updatepost.php?ID=<?php echo $mydata['ID'] ?>" class="btn btn2">Update</a>
             </td>
         </tr>
   <?php 

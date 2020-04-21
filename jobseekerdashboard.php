@@ -49,6 +49,7 @@ $row = mysqli_fetch_assoc($query);
 <div class="editarea" id="accountsettings">
 	<p>My Account Settings</p>
 <form class="accountsettings interestsedit" method="post">	
+	<img src="img/close.png" class="closeimg close1" onclick="close1()">
 	<label class="label1">Full Name</label>
 	<input type="text" name="fullnameupdate" value="<?php echo $row['Fullname'] ?>">
 	<label class="label2">Email</label>
@@ -72,6 +73,7 @@ $row = mysqli_fetch_assoc($query);
 </div>
 <!-- Edit for the above section -->
 <div class="editarea" id="aboutmeedit">
+	<img src="img/close.png" class="closeimg close2" onclick="close2()">
 	<p>Edit your About me (Max. 100 words)</p>
 		<form method="post">
 			<textarea onchange="maximumwords(this)" name="aboutmeupdate">
@@ -96,6 +98,7 @@ $row = mysqli_fetch_assoc($query);
 </div>
 <!-- Edit section of the profle picture only and only -->
 <div class="editarea editprofile" id="profileedit">
+	<img src="img/close.png" class="closeimg close2" onclick="close2()">
 	<p>Change your profile picture</p>
 	<form class="profileupdate" method="post" enctype="multipart/form-data">
 		<input type="file" name="updatepp" id="updatepp" accept="image/*">
@@ -104,6 +107,7 @@ $row = mysqli_fetch_assoc($query);
 </div>
 <!-- Edit section for the above section i.e short bio -->
 <div class="editarea editareabio" id="bioedit">
+	<img src="img/close.png" class="closeimg close3" onclick="close3()">
 	<p>Update your biography</p>
 		<form class="bioedit" method="post">
 			<label>University</label>
@@ -135,6 +139,7 @@ $row = mysqli_fetch_assoc($query);
 </div>
 <!-- Edit for the above section -->
 <div class="editarea" id="interestsedit">
+	<img src="img/close.png" class="closeimg close2" onclick="close2()">
 	<p>Add(Edit) up to  3 interests</p>
 		<form class="interestsedit" method="post">
 			<input type="text" name="interest1" placeholder="Interest 1" value="<?php echo $row['Interest1'] ?>">
@@ -155,6 +160,7 @@ $row = mysqli_fetch_assoc($query);
 </div>
 <!-- Edit for the above section -->
 <div class="editarea" id="skillsedit">
+	<img src="img/close.png" class="closeimg close2" onclick="close2()">
 	<p>Add(Edit) up to  4 Skills</p>
 		<form class="interestsedit" method="post">
 			<input type="text" name="skill1" placeholder="Skill 1" value="<?php echo $row['Skill1'] ?>">
@@ -166,20 +172,21 @@ $row = mysqli_fetch_assoc($query);
 	</div>
 <div class="three">
 	<h1 class="headings">Documents</h1>
-	<ul class="Skills">
-		<li>Advanced Certificate</li>
-		<li>Market Analysis</li>
-		<li>Valentine_resume</li>
-	</ul>
 	<p class="edit4">Upload<span><img class="icon4" src="img/upload.svg"></span></p>
+	<ul class="Skills">
+		<li><?php echo $row['Resume'] ?></li>
+	</ul>
+	
 </div>
 </section>
 <!-- My applications section -->
 <div id="MyApplications">
 	
-	
+	<!-- Switching mode -->
+	<button class="switch" id="jobbutton" onclick="jobswitch()">Job Applications</button>
+	<button class="switch" id="internbutton" onclick="internswitch()">Internship Applications</button>
 	<!-- Table dashboard to display where the user has applied to, the status -->
-	<table>
+	<table id="jobtable">
 		<tr>
 			<th>Job Name</th>
 			<th>Company</th>
@@ -187,20 +194,57 @@ $row = mysqli_fetch_assoc($query);
 			<th>Job field</th>
 			<th>Status</th>
 		</tr>
-		<tr>
-			<td>Accountant</td>
-			<td>MTN RWANDA</td>
-			<td>2020-03-30</td>
-			<td>Accounting</td>
+		<?php 
+  
+  $result = mysqli_query($dbconnect, "SELECT * FROM applications where Email='$email'");
+  
+  while ($mydata = mysqli_fetch_assoc($result)) 
+  	{ 
+  		
+ ?>
+    	<tr>
+			<td><?php echo $mydata['Jobname'] ?></td>
+			<td><?php echo $mydata['Company'] ?></td>
+			<td><?php echo $mydata['Jobdeadline'] ?></td>
+			<td><?php echo $mydata['Jobfield'] ?></td>
 			<td>Pending</td>
 		</tr>
+  <?php 
+   
+  }?>
+  ?>
+  
+		
+	</table>
+	<table id="interntable">
 		<tr>
-			<td>Accountant</td>
-			<td>MTN RWANDA</td>
-			<td>2020-03-30</td>
-			<td>Accounting</td>
+			<th>Internship Name</th>
+			<th>Company</th>
+			<th>Internship Deadline</th>
+			<th>Internship field</th>
+			<th>Status</th>
+		</tr>
+		<?php 
+  
+  $result = mysqli_query($dbconnect, "SELECT * FROM internshipapplication where Email='$email'");
+  
+  while ($mydata = mysqli_fetch_assoc($result)) 
+  	{ 
+  		
+ ?>
+    	<tr>
+			<td><?php echo $mydata['Internshipname'] ?></td>
+			<td><?php echo $mydata['Company'] ?></td>
+			<td><?php echo $mydata['Internshipdeadline'] ?></td>
+			<td><?php echo $mydata['Internshipfield'] ?></td>
 			<td>Pending</td>
 		</tr>
+  <?php 
+   
+  }?>
+  ?>
+  
+		
 	</table>
 </div>
 <!-- Job opportunities section -->

@@ -1,5 +1,4 @@
-<?php include('serverlesscompany.php');
- ?>
+<?php include('serverlesscompany.php');?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,10 +13,10 @@
 	</div>
 	<!-- Forms to login as an employeer seeker -->
 	<form id="loginform" method="post">
+		<?php include('error.php'); ?>
 		<input type="email" name="email1" placeholder="E-mail"><br><br><br>
 		<input type="password" name="password1" placeholder="Password"><br><br>
 		<input type="submit" name="enter1" value="Enter">
 	</form>
-    
 </body>
 </html>

@@ -295,15 +295,13 @@ function logout(){
 	}
 }
 
+
 //word maximum lenght
 var max = 100;
 function maximumwords(obj){
 	var len = obj.value.split(/[\s]+/);
 		if (len.length > max) {
 			alert("The maximum word is" + max);
-		}
-		else{
-			console.log("loooooo");
 		}
 		return true;
 }
@@ -341,7 +339,6 @@ function jobposterdisplay(){
 	var jobposting = document.getElementById("jobposting");
 	jobposter.style.display="block";
 	jobposting.style.display="none";
-	
 	document.title="Apply for the job";
 }
 function jobposterclose(){
@@ -369,8 +366,19 @@ function internshipposterclose(){
 }
 function accountsettings(){
 	var account = document.getElementById("accountsettings");
+	var logout = document.getElementById("logout");
 	account.style.display="block";
+	logout.style.display="none";
 	console.log(2);
+}
+function outside(){
+	var options = document.querySelector(".logoutoptions");
+	document.addEventListener("click", function(event) {
+		if (event.target.closest(".logoutoptions")) return;
+
+		options.classList.add("hideit");
+		// body...
+	})
 }
 
 // Hidde where to posta a job
@@ -397,6 +405,44 @@ updateajob.style.display="block";
 console.log(2);
 }
 
-//close window
+//switch tables
+function jobswitch(){
+	var jobtable = document.getElementById("jobtable");
+	var interntable = document.getElementById("interntable");
+    var jobbutton = document.getElementById("jobbutton");
+    var internbutton = document.getElementById("internbutton");
 
+	jobtable.style.display="";
+	interntable.style.display="none";
+	jobbutton.style.background="#34421E";
+	internbutton.style.background="";
+}
+function internswitch(){
+	var jobtable = document.getElementById("jobtable");
+	var interntable = document.getElementById("interntable");
 
+	jobtable.style.display="none";
+	interntable.style.display="block";
+	internbutton.style.background="#34421E";
+	jobbutton.style.background="none";
+}
+function close1(){
+	var accountsettings = document.getElementById("accountsettings");
+	accountsettings.style.display="none";
+}
+function close2(){
+	var profileedit = document.getElementById("profileedit");
+	var aboutmeedit = document.getElementById("aboutmeedit");
+	var skillsedit = document.getElementById("skillsedit");
+	var interestsedit= document.getElementById("interestsedit");
+	var accountsettings= document.getElementById("accountsettings");
+	profileedit.style.display="none";
+	aboutmeedit.style.display="none";
+	skillsedit.style.display="none";
+	interestsedit.style.display="none";
+	accountsettings.style.display="none";
+}
+function close3(){
+	var bioedit= document.getElementById("bioedit");
+	bioedit.style.display="none";
+}

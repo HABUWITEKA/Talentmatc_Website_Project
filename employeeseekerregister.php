@@ -17,6 +17,7 @@
     <h1 class="step">Account Setup</h1>
     <!-- form for step1 -->
     <form id="registerform" method="post">
+      <?php include('errorregister.php'); ?>
 		<input type="email" name="email" placeholder="E-mail" required><br><br>
 		<input type="password" name="password1" placeholder="Password" required><br><br>
 		<input type="password" name="password2" placeholder="Confirm Password" required><br><br>

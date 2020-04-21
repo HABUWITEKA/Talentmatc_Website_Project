@@ -26,12 +26,41 @@ if (isset($_POST['updateinternship'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>My Dashboard</title>
+	<title>Update internship post</title>
 	<link rel="icon" type="image/png" href="img/talent.png">
 	<link rel="stylesheet" type="text/css" href="Css/dashboardcompany.css">
+    <link rel="stylesheet" type="text/css" href="Css/dashboard.css">
 	<script type="text/javascript" src="java/java.js"></script>
 </head>
 <!-- Menu bar -->
+<body>
+    <!-- division containig search bar with profilepic -->
+<div class="upperbaropenpost" >
+    <img src="<?php echo 'Profilepictures - Jobseeker/' . $row['profilepicture'] ?>" class="logoutpicopenpost" onerror="this.src='img/add.svg'">
+    <img src="img/arrow.svg" class="arrowopenpost" onclick="logout()">
+    <div class="logoutoptionsopenpost" id="logout">
+        <nav>
+            <a href="#" class="acc" onclick="accountsettings()">My Account</a>
+            <a href="logoutjobseeker.php" class="log">logout</a>
+        </nav>
+    </div>
+</div>
+<!-- This is the account setting that will appear when the user clicks on the My account -->
+<div class="editarea" id="accountsettings">
+    <p>My Account Settings</p>
+<form class="accountsettings interestsedit" method="post">  
+    <label class="label1">Full Name</label>
+    <input type="text" name="fullnameupdate" value="<?php echo $row['Fullname'] ?>">
+    <label class="label2">Email</label>
+    <input type="text" name="emailupdate" value="<?php echo $row['email'] ?>">
+    <label class="label3">Change Password</label>
+    <input type="password" name="passwordupdate" placeholder="New Password" value="<?php echo $row['Password'] ?>">
+    <input type="password" name="confirmpasswordupdate" placeholder="Confirm New Password">
+    <label class="label4">Telephone</label>
+    <input type="tel" name="telephoneupdate" value="0787282620">
+    <input type="submit" name="saveaccountsettings" value="Save">
+</form>
+</div>
 
 <?php
 //getting id from url
@@ -51,6 +80,7 @@ while($res = mysqli_fetch_array($result))
 }
 ?>
 <div class="updateajob" id="updateajob">
+    <h1>Update internship</h1>
     	<form method="POST">
     		<input type="hidden" name="ID" value=<?php echo $id;?>>
     		<label class="label1">Internship title</label><br>

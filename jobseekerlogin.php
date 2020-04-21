@@ -13,6 +13,7 @@
 	</div>
 	<!-- Forms to login as a job seeker -->
 	<form id="loginform" method="post">
+		<?php include('error.php'); ?>
 		<input type="email" name="email1" placeholder="E-mail"><br><br><br>
 		<input type="password" name="password1" placeholder="Password"><br><br>
 		<input type="submit" name="enter2" value="Enter">

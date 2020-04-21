@@ -79,3 +79,10 @@ input[type=submit]{
 input[type=submit]:hover{
 	background-color: #34421E;
 }
+.error{
+	font-family: verdana;
+	font-size: 13px;
+	font-weight: bold;
+	color: red;
+	opacity: .7;
+}

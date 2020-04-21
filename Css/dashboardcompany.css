@@ -524,6 +524,8 @@ body{
 	margin-top: 20px;
 	margin-left: 10px;
 	float: left;
+	top: 10px;
+	left: 100px;
 	position: relative;
 	font-size: 10px;
 }
@@ -842,7 +844,7 @@ table th {
 }
 
 .updateajob{
-	left: 475px;
+	left: 360px;
 	top: 100px;
 	position: absolute;
 	background-color: #C19434;
@@ -995,3 +997,28 @@ table th {
 	margin-left: 110px;
 	margin-top: -45px;
 }
+/*close image for all pop ups on the page*/
+.closeimg{
+	width: 30px;
+	height: 30px;
+}
+.close1{
+	left: 560px;
+	top: -65px;
+	position: absolute;
+}
+.close2{
+	left: 285px;
+	top: -5px;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+}
+.close3{
+	left: 285px;
+	top: -5px;
+	position: absolute;
+	width: 20px;
+	height: 20px;
+}
+

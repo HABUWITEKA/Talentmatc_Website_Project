@@ -1,5 +1,7 @@
 <?php 
 session_start();
+$errors = array(); 
+
 // connect to the database
 $connection = mysqli_connect('localhost', 'HABUWITEKA', '17170', 'talentmatch');
 
@@ -16,7 +18,7 @@ if (isset($_POST['submitemployeeseeker'])) {
 	$Website = mysqli_real_escape_string($connection, $_POST['Website']);
   $Industry = mysqli_real_escape_string($connection, $_POST['Industry']);
 	$Bio = mysqli_real_escape_string($connection, $_POST['Companybio']);
-  $Companylogo = mysqli_real_escape_string($connection, $_POST['Companylogo']);
+  
 
 	// form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
@@ -28,38 +30,39 @@ if (isset($_POST['submitemployeeseeker'])) {
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM comapnyusers WHERE email='$Email'  LIMIT 1";
+  $user_check_query = "SELECT * FROM comapnyusers WHERE email='$Email'";
   $result = mysqli_query($connection, $user_check_query);
-  $user = mysqli_fetch_assoc($result);
   
-  if ($user) { // if user exists
-    
-    if ($user['email'] === $Email) {
-      array_push($errors, "email already exists");
-    }
+   if (mysqli_num_rows($result) > 1) {
+    array_push($errors, "Email is already registered");
   }
+
   if (count($errors) == 0) {
     $password_hash = md5($Password);//encrypt the password before saving in the database
 
-    $query = "INSERT INTO comapnyusers (companyname,email, telephone,password,Website,Industry,Companylogo,Companybio) VALUES ('$Companyname','$Email','$Telephone','$password_hash','$Website','$Industry','$Companylogo','$Bio')";
+    $query = "INSERT INTO comapnyusers (companyname,email, telephone,password,Website,Industry,Companybio) VALUES ('$Companyname','$Email','$Telephone','$password_hash','$Website','$Industry','$Bio')";
     mysqli_query($connection, $query);
     // $_SESSION['username'] = $username;
     // $_SESSION['success'] = "You are now logged in";
     header('location:welcomeemployee.php');
   }
-  else
-  {
-    header('location:employeeseekerregister.php');
-  }
+  // else
+  // {
+  //   header('location:employeeseekerregister.php');
+  // }
 
 }
 // Let's allow the user to login
 if (isset($_POST['enter1'])) {
   $email = mysqli_real_escape_string($connection, $_POST['email1']);
   $password = mysqli_real_escape_string($connection, $_POST['password1']);
-
+  $test = "SELECT * FROM comapnyusers WHERE email='$email'";
+  $result = mysqli_query($connection, $test);
   if (empty($email)) {
-    array_push($errors, "email is required");
+    array_push($errors, "Email is required");
+  }
+  if (mysqli_num_rows($result) == 0) {
+    array_push($errors, "Email is not registered");
   }
   if (empty($password)) {
     array_push($errors, "Password is required");
@@ -74,8 +77,7 @@ if (isset($_POST['enter1'])) {
       header('location: employeeseekerdashboard.php');
     }
     else {
-      header('location: error.php');
-      echo "Login failed";
+      array_push($errors, "Email and Password do not match");
     }
   }
 }

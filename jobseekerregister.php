@@ -10,13 +10,14 @@
 </head>
 <body>
 	<div class="rectangle">
-    <p>Already have an account? <a href="jobseekerlogin.php">login</a></p>
+    <p style="position: relative;">Already have an account? <a href="jobseekerlogin.php">login</a></p>
   </div> 
    <div id="Step1">
 	  
     <h1 class="step">Account Setup</h1>
     <!-- form for step1 -->
-    <form id="registerform" method="post">
+    <form id="registerform" method="post" enctype="multipart/form-data">
+      <?php include('errorregister.php'); ?>
 		<input type="email" name="email" placeholder="E-mail" required><br><br>
 		<input type="password" name="password1" placeholder="Password" required><br><br>
 		<input type="password" name="password2" placeholder="Confirm Password" required><br><br>

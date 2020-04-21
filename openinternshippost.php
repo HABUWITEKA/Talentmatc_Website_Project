@@ -17,14 +17,25 @@ while($res = mysqli_fetch_array($result))
     $internshiplocation = $res['location'];
     $internshipindustry = $res['Internshipindustry'];
     $internshipdescription = $res['internshipdescriptionpdf'];
-    $email = $res['Email'];
+    $emaill = $res['Email'];
 }
 // Retrieving the company logo from the database
-$anotherresult = mysqli_query($dbconnect, "SELECT * FROM comapnyusers WHERE email = '$email'");
+$anotherresult = mysqli_query($dbconnect, "SELECT * FROM comapnyusers WHERE email = '$emaill'");
 while ($anotheres=mysqli_fetch_array($anotherresult)) {
     $companyimage = $anotheres['Companylogo'];
+    $companyname = $anotheres['companyname'];
+
 }
 ?>
+<!-- Php side of keeping track of who applied -->
+<?php
+if (isset($_POST['applyinternship'])) {
+    $useremail = $_SESSION['email'];
+    $save = "INSERT INTO internshipapplication(Email, Company, Internshipname, Internshipdeadline, Internshipfield) VALUES ('$useremail','$companyname', '$internshiptitle', '$internshipdeadline', '$internshipindustry')";
+    mysqli_query($dbconnect, $save);
+}
+
+ ?>
    
 <!-- The html part of our code for a good look -->
 <!DOCTYPE html>
@@ -65,7 +76,7 @@ while ($anotheres=mysqli_fetch_array($anotherresult)) {
 </div>
     <!-- The ui part the user will see. -->
     <div class="jobposter" id="jobposter">
-        <a href="jobseekerdashboard.php">Not interested</a>
+        <button onclick="window.close()">Not interested</button>
         <div class="design">
             <img src="<?php echo 'companylogos/' . $companyimage ?>">
             <p class="jobtitlee"><?php echo $internshiptitle; ?></p>
@@ -82,7 +93,7 @@ while ($anotheres=mysqli_fetch_array($anotherresult)) {
             <label class="label">Upload your Cover letter(Only Pdf)</label>
             <input type="file" name="cvforjob" accept="Application/pdf">
             <input type="file" name="letterforjob" accept="Application/pdf">
-            <input type="submit" name="applyjob" value="Submit">
+            <input type="submit" name="applyinternship" value="Submit" onclick="alert('Thank you! we will reach out to you ASAP!'), window.close()">
         </form>
     </div>
 </body>

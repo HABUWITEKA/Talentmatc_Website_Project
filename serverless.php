@@ -1,6 +1,7 @@
 <?php 
 
 session_start();
+$errors = array(); 
 // connect to the database
 $connection = mysqli_connect('localhost', 'HABUWITEKA', '17170', 'talentmatch');
 
@@ -17,50 +18,79 @@ if (isset($_POST['submitjobseeker'])) {
 	$Telephone = mysqli_real_escape_string($connection, $_POST['Telephone']);
 	$Degree = mysqli_real_escape_string($connection, $_POST['Degree']);
 	$Graduation = mysqli_real_escape_string($connection, $_POST['Graduation']);
-	$Profile = mysqli_real_escape_string($connection, $_POST['profile']);
-	$Resume = mysqli_real_escape_string($connection, $_POST['resume']);
+
+  // receiving the pdf name the user gave us as his 
   
 	// form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
   if (empty($Email)) { array_push($errors, "Email is required"); }
   if (empty($Password)) { array_push($errors, "Password is required"); }
   if ($Password != $ConfirmedPassword) {
-  array_push($errors, "The two passwords do not match");
+  array_push($errors, "The two Passwords do not match");
   }
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM studentusers WHERE email='$Email'  LIMIT 1";
+  $user_check_query = "SELECT * FROM studentusers WHERE email='$Email'";
   $result = mysqli_query($connection, $user_check_query);
-  $user = mysqli_fetch_assoc($result);
   
-  if ($user) { // if user exists
-    
-    if ($user['email'] === $Email) {
-      array_push($errors, "email already exists");
+  
+  if (mysqli_num_rows($result) > 1) {
+    array_push($errors, "Email is already registered");
+  }
+
+    // for the database
+    $resumeName = $_FILES["resume"]["name"];
+    // For image upload
+    $target_dir = "resumes/";
+    $target_file = $target_dir . basename($resumeName);
+    // VALIDATION
+    // validate image size. Size is calculated in Bytes
+    if($_FILES['resume']['size'] > 900000) {
+      $msg = "Image size should not be greated than 900Kb";
+      $msg_class = "alert-danger1";
     }
-  }
+    // check if file exists
+    if(file_exists($target_file)) {
+      $msg = "File already exists";
+      $msg_class = "alert-danger2";
+    }
   if (count($errors) == 0) {
-    $password_hash = md5($Password);//encrypt the password before saving in the database
-    $query = "INSERT INTO studentusers (email,password,Fullname,Currentuniv,telephone,Degree,Graduation,Resume,profilepicture) 
-          VALUES ('$Email', '$password_hash', '$Fullname', '$University', '$Telephone','$Degree','$Graduation','$Resume','$Profile')";
-    mysqli_query($connection, $query);
-    // $_SESSION['username'] = $username;
-    // $_SESSION['success'] = "You are now logged in";
-    header('location:welcomejobseeker.php');
+if(move_uploaded_file($_FILES["resume"]["tmp_name"], $target_file)) {
+        $password_hash = md5($Password);//encrypt the password before saving in the database
+    $query = "INSERT INTO studentusers (email,password,Fullname,Currentuniv,telephone,Degree,Graduation,Resume) 
+          VALUES ('$Email', '$password_hash', '$Fullname', '$University', '$Telephone','$Degree','$Graduation','$resumeName')";
+        if(mysqli_query($connection, $query)){
+          header('location:welcomejobseeker.php');
+          $msg = "Image uploaded and saved in the Database";
+          $msg_class = "alert-success";
+        } else {
+          $msg = "There was an error in the database";
+          $msg_class = "alert-danger3";
+        }
+      } 
+      else {
+        $error = "There was an error uploading the file";
+        $msg = "alert-danger4";
+      }
   }
-  else
-  {
-    header('location:jobseekerregister.php');
-  }
+  // else
+  // {
+  //   array_push($errors, "Email is required");
+  // }
 }
 // Let's allow the user to login
 if (isset($_POST['enter2'])) {
+  
   $email = mysqli_real_escape_string($connection, $_POST['email1']);
   $password = mysqli_real_escape_string($connection, $_POST['password1']);
-
+  $test = "SELECT * FROM studentusers WHERE email='$email'";
+  $result = mysqli_query($connection, $test);
   if (empty($email)) {
-    array_push($errors, "email is required");
+    array_push($errors, "Email is required");
+  }
+  if (mysqli_num_rows($result) == 0) {
+    array_push($errors, "Email is not registered");
   }
   if (empty($password)) {
     array_push($errors, "Password is required");
@@ -70,14 +100,13 @@ if (isset($_POST['enter2'])) {
     $password = md5($password);
     $query = "SELECT * FROM studentusers WHERE email='$email' AND password='$password'";
     $results = mysqli_query($connection, $query);
+
     if (mysqli_num_rows($results) == 1) {
       $_SESSION['email'] = $email;
       header('location: jobseekerdashboard.php');
-      
     }
     else {
-      header('location: error.php');
-      echo "Login failed";
+      array_push($errors, "Email and Password do not match");
     }
   }
 }
@@ -236,7 +265,7 @@ $msg = "";
       }
     }
   }
-   // update
+
 
  
 ?>

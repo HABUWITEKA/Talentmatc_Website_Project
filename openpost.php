@@ -1,5 +1,7 @@
 <?php
  include('serverlesscompany.php');
+ $email=$_SESSION['email'];
+ // include('serverless.php');
 $dbconnect=mysqli_connect('localhost', 'HABUWITEKA', '17170', 'talentmatch');
 ?>
  <?php
@@ -16,14 +18,25 @@ while($res = mysqli_fetch_array($result))
     $joblocation = $res['location'];
     $jobindustry = $res['Jobindustry'];
     $jobdescription = $res['jobdescriptionpdf'];
-    $email = $res['Email'];
+    $emaill = $res['Email'];
 }
 // Retrieving the company logo from the database
-$anotherresult = mysqli_query($dbconnect, "SELECT * FROM comapnyusers WHERE email = '$email'");
+$anotherresult = mysqli_query($dbconnect, "SELECT * FROM comapnyusers WHERE email = '$emaill'");
 while ($anotheres=mysqli_fetch_array($anotherresult)) {
     $companyimage = $anotheres['Companylogo'];
+    $companyname = $anotheres['companyname'];
 }
 ?>
+
+<!-- Php side of keeping track of who applied -->
+<?php
+if (isset($_POST['applyjob'])) {
+    $useremail = $_SESSION['email'];
+    $save = "INSERT INTO applications(Email, Company, Jobname, Jobdeadline, Jobfield) VALUES ('$useremail','$companyname', '$jobtitle', '$jobdeadline', '$jobindustry')";
+    mysqli_query($dbconnect, $save);
+}
+
+ ?>
    
 <!-- The html part of our code for a good look -->
 <!DOCTYPE html>
@@ -69,7 +82,7 @@ while ($anotheres=mysqli_fetch_array($anotherresult)) {
 
     <!-- The ui part the user will see. -->
     <div class="jobposter" id="jobposter">
-        <a href="jobseekerdashboard.php">Not interested</a>
+        <button onclick="window.close()">Not interested</button>
         <div class="design">
             <img src="<?php echo 'companylogos/' . $companyimage ?>">
             <p class="jobtitlee"><?php echo $jobtitle; ?></p>
@@ -86,7 +99,7 @@ while ($anotheres=mysqli_fetch_array($anotherresult)) {
             <label class="label">Upload your Cover letter(Only Pdf)</label>
             <input type="file" name="cvforjob" accept="Application/pdf">
             <input type="file" name="letterforjob" accept="Application/pdf">
-            <input type="submit" name="applyjob" value="Submit">
+            <input type="submit" name="applyjob" value="Submit" onclick="alert('Thank you! we will reach out to you ASAP!'), window.close()">
         </form>
     </div>
 </body>
