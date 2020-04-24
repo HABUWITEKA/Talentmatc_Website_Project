@@ -422,7 +422,7 @@ function internswitch(){
 	var interntable = document.getElementById("interntable");
 
 	jobtable.style.display="none";
-	interntable.style.display="block";
+	interntable.style.display="inline-block";
 	internbutton.style.background="#34421E";
 	jobbutton.style.background="none";
 }
