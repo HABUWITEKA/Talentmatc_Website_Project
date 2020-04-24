@@ -1,0 +1,519 @@
+body{
+	margin: 0;
+	background: #F1F1EF;
+	overflow-x: hidden;
+}
+
+.menubar{
+	width: 250px;
+	height: 665px;
+	position: fixed;
+	background-color: #34421E;
+}
+.seachbar{
+	top:7px;
+	left: 100px;
+	position: absolute;
+	border: none;
+	border-radius: 3px;
+	background-color: #F1F1EF;
+	width: 400px;
+	height: 30px;
+	font-family:verdana;
+	font-size: 13px; 
+}
+.upperbar{
+	width: 1056px;
+	height: 50px;
+	left:310px;
+	position: fixed;
+	background-color: #C19434;
+	z-index: 100;
+}
+/*Navigation Bar*/
+ .menubar nav a{
+ 	font-family: verdana;
+ 	color: #F1F1EF;
+ 	font-size: 18px;
+ 	text-decoration: none;
+ 	display: block;
+ 	margin-top: 40px;
+ 	top:200px;
+ 	left: 12px;
+ 	position: relative;
+ 	/*background-color: #34421E;*/
+ 	width: 238px;
+ 	height: 40px;
+ 	padding-left: 15px;
+ 	padding-top: 10px;
+ }
+ .menubar nav a:hover{
+ 	color: #34421E;
+ 	background: #F1F1EF;
+ }
+
+ .menubar nav .active{
+ 	color: #34421E;
+ 	background: #F1F1EF;
+ 	/*border-top-right-radius: 20px;*/
+ }
+ .active{
+ 	background: #F1F1EF;
+ 	/*border-top-right-radius: 20px;*/
+ }
+ .menubar nav{
+ 	left: -15px;
+ 	position: absolute;
+ }
+
+ #companies{
+ 	display: none;
+ }
+ #jobseekers{
+ 	display: block;
+ }
+
+ /*overview box design*/
+ .overview{
+ 	border: 3px solid indigo;
+ 	border-bottom: none;
+ 	width: 300px;
+ 	height: 200px;
+ 	float: left;
+ 	margin-left: 350px;
+ 	/*left: 350px;*/
+ 	top: 120px;
+ 	position: relative;
+ }
+ .registered{
+ 	border-color: green;
+ }
+
+ .number{
+ 	color: black;
+ 	font-weight: bolder;
+ 	font-family: Verdana;
+ 	font-size: 60px;
+ 	margin: 0;
+ 	margin-right: -50%;
+ 	transform: translate(-50%,50%);
+ 	left: 50%;
+ 	position: absolute;
+ }
+ .definition{
+ 	color: #C19434;
+ 	font-family: verdana;
+ 	font-size: 20px;
+ 	margin: 0;
+ 	margin-right: -50%;
+ 	transform: translate(-50%,50%);
+ 	left: 50%;
+ 	top: 95px;
+ 	position: absolute;
+ }
+ .viewbtn{
+    display: inline-block;
+	padding: 0.7em 1.4em;
+	margin: 0 0.3em 0.3em 0;
+	border-radius: 0.15em;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: verdana;
+	font-size: 14px;
+	color: #ffffff;
+	background-color:indigo;
+	border: none;
+	margin: 0;
+ 	margin-right: -50%;
+ 	transform: translate(-50%,50%);
+ 	left: 50%;
+ 	top: 135px;
+ 	position: absolute;
+ }
+ .registered .viewbtn{
+ 	background-color: green;
+ }
+ .viewbtn:hover{
+ 	opacity: .8;
+ }
+
+ /*famous jobs*/
+ .famousjob{
+ 	width: 1056px;
+ 	height: 300px;
+	left:310px;
+	top: 370px;
+	position: absolute;
+	/*background-color: maroon/*;*/
+*/	
+ }
+ .famousjob h1{
+ 	font-family: verdana;
+ 	font-size: 20px;
+ 	margin: 0;
+ 	margin-right: -50%;
+ 	transform: translate(-50%,50%);
+ 	left: 50%;
+ 	top: 20px;
+ 	position: absolute;
+ }
+
+ /*Table styling venue*/
+ .table1 {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 90%;
+  table-layout: fixed;
+  margin-right: -50%;
+  transform: translate(-50%,50%);
+  left: 50%;
+  top: 50px;
+  position: absolute;
+  font-family: Microsoft Yahei UI;
+}
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background-color: #C19434;
+  color: white;
+}
+
+/*display online and regisered users*/
+
+#onlineusers{
+	display: none;
+}
+#onlineusers h1{
+   font-family: verdana;
+   font-size: 25px;
+   top: 60px;
+   position: absolute;
+   left: 325px;
+   border-bottom: 2px solid #E43456;
+}
+
+.profile{
+	top: 150px;
+	left: 300px;
+	/*position: absolute;*/
+	background-color:#C19434;
+	width: 150px;
+	height: 150px;
+	box-shadow: 3px 3px 10px 2px #000000;
+	margin-left: 30px;
+	float: left;
+	position: relative;
+}
+.userpicture{
+	width: 50px;
+	height: 50px;
+	border-radius: 40px;
+	margin-right: -50%;
+ 	transform: translate(-50%,50%);
+ 	left: 50%;
+ 	top: -20px;
+ 	position: absolute;
+}
+.username{
+	margin-right: -50%;
+ 	transform: translate(-50%,50%);
+ 	left: 50%;
+ 	top: 40px;
+ 	position: absolute;
+ 	font-family: verdana;
+ 	font-weight: bold;
+ 	font-size: 16px;
+ 	text-align: center;
+}
+.profile .viewbtn{
+	top: 90px;
+	position: absolute;
+}
+.upperbarviewuser{
+	width: 1366px;
+	height: 50px;
+	left:0px;
+	position: fixed;
+	background-color: #34421E;
+	z-index: 100;
+}
+ .btn{
+	position: relative;
+	float: left;
+	top: 230px;
+	left: 100px;
+	margin-left: 20px;
+    display: inline-block;
+	padding: 0.7em 1.4em;
+	margin: 0 0.3em 0.3em 0;
+	border-radius: 0.15em;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: verdana;
+	font-size: 14px;
+	color: #ffffff;
+	background-color:indigo;
+	border: none;
+}
+
+.userbox{
+	width: 800px;
+	height: 1200px;
+	/*background-color: white;*/
+	left: 280px;
+	top: 100px;
+	position: relative;
+	/*border:2px solid #34421E;*/
+}
+.userbox .userpicture{
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+}
+.userbox .username{
+	font-size: 25px;
+	top: 70px;
+	position: relative;
+}
+.userbox .joininginfo{
+	font-family: verdana;
+	font-size: 9px;
+	opacity: .7;
+	margin-right: -50%;
+ 	transform: translate(-50%,50%);
+ 	left: 50%;
+ 	top: 150px;
+ 	position: absolute;
+}
+
+.userbox .icon{
+	width: 20px;
+	height: 20px;
+}
+.userbox .contacticon{
+	float: left;
+	left: 240px;
+	top: 80px;
+	position: relative;
+	margin-left: 90px;
+}
+.userbox .contacticon p{
+	margin-right: -50%;
+ 	transform: translate(-50%,50%);
+ 	left: 50%;
+ 	top:5px;
+ 	position: absolute;
+	font-family: verdana;
+	font-size: 10px;
+}
+/**/
+.section1{
+	width: 200%;
+}
+.section1 .titles{
+	font-family: verdana;
+	font-size: 30px;
+	margin-right: -50%;
+ 	transform: translate(-50%,50%);
+ 	left: 140px;
+ 	top:200px;
+ 	position: absolute;
+    border-bottom: 2px solid #E45920;
+}
+.aboutme{
+	left: 20px;
+	top: 330px;
+	position: absolute;
+	width: 760px;
+	height: 300px;
+	background-color: #34421E;
+}
+.aboutme .headings{
+	margin-right: -50%;
+ 	transform: translate(-50%,50%);
+ 	left: 50%;
+ 	top:0px;
+ 	position: absolute;
+	font-family: verdana;
+	color: #C19434;
+	font-size: 15px;
+}
+.aboutme .aboutmetext{
+	color: #F1F1EF;
+	font-family: verdana;
+	font-size: 17px;
+	top: 42px;
+	position: absolute;
+	letter-spacing: 1px;
+	line-height: 1.4em;
+	text-align: center;
+	font-size: 16px;
+}
+
+.three{
+	width: 200px;
+    height: 280px;
+    float: left;
+    background-color: #34421E;
+    margin-left: 80px;
+    position: relative;
+    top: 580px;
+    left: -280px;
+
+}
+.three .title{
+	margin-top: 30px;
+	left: 30px;
+	position: relative;
+	font-weight: bold;
+	font-size: 14px;
+	font-family: verdana;
+	color: #C19434;
+}
+.three .title .content{
+    color: #F1F1EF;
+}
+.three .name{
+	color: #C19434;
+	font-weight: bold;
+	font-family: verdana;
+	margin: 0;
+ 	position: absolute;
+ 	left: 50%;
+ 	top:85px;
+ 	margin-right: -50%;
+ 	transform: translate(-50%, -50%);
+
+}
+.three .headings{
+	margin-right: -50%;
+ 	transform: translate(-50%,50%);
+ 	left: 50%;
+ 	top:0px;
+ 	position: absolute;
+	font-family: verdana;
+	color: #C19434;
+	font-size: 15px;
+}
+.three li{
+	margin-top: 20px;
+	top: 40px;
+	list-style-type:square;
+	position: relative;
+	font-family: verdana;
+	color: #F1F1EF;
+
+}
+.section2 .titles{
+	font-family: verdana;
+	font-size: 30px;
+	margin-right: -50%;
+ 	transform: translate(-50%,50%);
+ 	left: 160px;
+ 	top:950px;
+ 	position: absolute;
+    border-bottom: 2px solid #E45920;
+}
+.switch{
+	top: 200px;
+	left: 50px;
+	position: relative;
+	padding: 0.7em 1.4em;
+	margin-left: -50px;
+	float: left;
+	border-radius: 0.15em;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: verdana;
+	font-weight: bold;
+	color: #C19434;
+	border: none;
+	font-size: 15px;
+	transform: scale(.7,.7);
+}
+.section2 .table{
+	font-family: Verdana;
+	border-collapse: collapse;
+	width: 90%;
+	top: 360px;
+	left: 20px;
+	position: absolute;
+	border-bottom: 3px solid #ddd;
+	border-right: 3px solid #eee;
+	border-left: 3px solid #eee;
+	box-shadow: 2px 2px 2px #404948;
+}
+#interntable{
+	display: none;
+}
+#jobbutton{
+	background: #34421E;
+}
+
+#section2{
+	display: none;
+}
+#section3{
+	display: none;
+}
+#section4{
+	display: none;
+}
+.lastlogin{
+	top: 200px;
+	left: 20px;
+	position: relative;
+	font-family: verdana;
+}
+.decision{
+	margin: 0;
+	margin-right: -50%;
+ 	transform: translate(-50%,50%);
+ 	left: 50%;
+ 	top: 300px;
+ 	position: absolute;
+ 	font-family: verdana;
+}
+#section4 .decisionbtn{
+	position: relative;
+	float: left;
+	top: 240px;
+	left: -50px;
+	margin-left: 90px;
+    display: inline-block;
+	padding: 0.7em 1.4em;
+	border-radius: 0.15em;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: verdana;
+	font-size: 14px;
+	color: #ffffff;
+	background-color:indigo;
+	border: none;
+}
+#section4 .cancel{
+	background-color:maroon;
+}
+#section4 .proceed{
+	background-color: orange;
+}
+.userbox .remove{
+	background: red;
+}
