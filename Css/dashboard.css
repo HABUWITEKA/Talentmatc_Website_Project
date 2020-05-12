@@ -10,7 +10,7 @@ body{
 	width: 250px;
 	height: 665px;
 	position: fixed;
-	background-color: #C19434;
+	background-color: #4a161a;
 }
 
 .upperbar{
@@ -18,7 +18,7 @@ body{
 	height: 50px;
 	left:310px;
 	position: fixed;
-	background-color: #34421E;
+	background-color: #4a161a;
 	z-index: 100;
 }
 .upperbaropenpost{
@@ -26,7 +26,7 @@ body{
 	height: 50px;
 	left:0px;
 	position: fixed;
-	background-color: #34421E;
+	background-color: #4a161a;
 	z-index: 100;
 }
 .aboutme{
@@ -35,13 +35,13 @@ body{
 	position: absolute;
 	width: 640px;
 	height: 300px;
-	background-color: #34421E;
+	background-color: white;
 }
 .shortbio{
     left: 1030px;
     top:80px;
     position: absolute;
-    background-color: #34421E;
+    background-color: white;
     width: 370px;
     height: 300px;
 }
@@ -49,7 +49,7 @@ body{
 	width: 370px;
     height: 300px;
     float: left;
-    background-color: #34421E;
+    background-color: white;
     margin-left: 10px;
     left:260px;
     top: 420px;
@@ -64,10 +64,10 @@ body{
 	left: 40%;
 	position:absolute;
 	font-family: verdana;
-	color: #C19434;
+	color: #000000;
 }
 .aboutme .aboutmetext{
-	color: #F1F1EF;
+	color: black;
 	font-family: verdana;
 	font-size: 17px;
 	top: 42px;
@@ -93,13 +93,14 @@ body{
 	font-weight: bold;
 	font-size: 14px;
 	font-family: verdana;
-	color: #C19434;
+	color: #4a161a;
 }
 .shortbio .title .content{
-    color: #F1F1EF;
+    color: black;
+
 }
 .shortbio .name{
-	color: #C19434;
+	color: #4a161a;
 	font-weight: bold;
 	font-family: verdana;
 	margin: 0;
@@ -115,7 +116,7 @@ body{
 .headings{
 	font-family: verdana;
 	font-size: 20px;
-	color: #C19434;
+	color: #4a161a;
 	margin: 0;
  	position: absolute;
  	left: 50%;
@@ -132,7 +133,7 @@ body{
 	list-style-type:square;
 	position: relative;
 	font-family: verdana;
-	color: #F1F1EF;
+	color: #4a161a;
 
 }
 input[type=text]{
@@ -174,19 +175,19 @@ input[type=text]{
  	top:60px;
  	left: 12px;
  	position: relative;
- 	/*background-color: #34421E;*/
+ 	/*background-color: #4a161a;*/
  	width: 238px;
  	height: 40px;
  	padding-left: 15px;
  	padding-top: 10px;
  }
  .menubar nav a:hover{
- 	color: #C19434;
+ 	color: #4a161a;
  	background: #F1F1EF;
  }
 
  .menubar nav .active{
- 	color: #C19434;
+ 	color: #4a161a;
  	background: #F1F1EF;
  	/*border-top-right-radius: 20px;*/
  }
@@ -223,6 +224,7 @@ input[type=text]{
  }
  #Careerresources{
  	display: none;
+ 	position: relative;
  }
 
  /*jobsposting*/
@@ -244,7 +246,7 @@ input[type=text]{
  	
  }
  .jobposting:hover{
- 	background-color: #34421E;
+ 	background-color: #000000;
  	cursor: progress;
  }
  .job{
@@ -260,7 +262,7 @@ input[type=text]{
  	filter: grayscale();
  }
  .jobtitle{
- 	color: #C19434;
+ 	color: #4a161a;
  	font-weight: bold;
  	letter-spacing: 2px;
  	font-family: verdana;
@@ -301,7 +303,7 @@ input[type=text]{
  	transform: scale(.9,.9);
  }
  .apply{
- 	color: #C19434;
+ 	color: #4a161a;
  	font-size: 13px;
  	font-family: verdana;
  	font-weight: bold;
@@ -322,7 +324,7 @@ input[type=text]{
 
  }
  .internshipposting:hover{
- 	background-color: #C19434;
+ 	background-color: #000000;
  	cursor: progress;
  }
  .internship{
@@ -338,7 +340,7 @@ input[type=text]{
  	filter: grayscale();
  }
  .internshiptitle{
- 	color: #34421E;
+ 	color: #4a161a;
  	font-weight: bold;
  	letter-spacing: 2px;
  	font-family: verdana;
@@ -378,12 +380,12 @@ input[type=text]{
  	transform: scale(.9,.9);
  }
  .internshipapply{
- 	color: #34421E;
+ 	color: #4a161a;
  	font-size: 13px;
  	font-family: verdana;
  	font-weight: bold;
  	top:214px;
- 	left:181px;
+ 	left:177px;
  	position: absolute;
  }
 
@@ -393,15 +395,14 @@ input[type=text]{
  	width: 300px ;
  	height: 250px;
  	background: white;
- 	top: 75px;
+ 	top: 395px;
  	left: 260px;
  	position: relative;
  }
  .career{
  	float: left;
  	margin-left: 50px;
- 	margin-top: 20px;
-
+    margin-top: -230px;
  }
  .resourceimg{
  	top: 55px;
@@ -415,7 +416,7 @@ input[type=text]{
  	font-family: verdana;
  	font-weight: bold;
  	font-size: 20px;
- 	color: #C19434;
+ 	color: #000000;
  	margin: 0;
  	position: absolute;
  	left: 50%;
@@ -445,7 +446,7 @@ input[type=text]{
  	margin-right: -50%;
  	transform: translate(-50%, -50%);
  	font-family: verdana;
- 	color: #C19434;
+ 	color: #000000;
  	font-size: 13px;
  }
  .btn{
@@ -457,7 +458,7 @@ input[type=text]{
  	display: inline-block;
  	font-size: 15px;
  	font-family: verdana;
- 	background-color: #34421E;
+ 	background-color: #4a161a;
  	margin: 0;
  	position: absolute;
  	left: 50%;
@@ -472,6 +473,27 @@ input[type=text]{
  .resource:hover .btn{
  	opacity: 1;
  }
+ #slidebuttons{
+ 	top: 500px;
+ 	left: 770px;
+ 	position: absolute;
+ }
+ .slides{
+ 	/*display: none;*/
+ }
+ .activeslide, .dot:hover {
+  background-color: #717171;
+}
+ .dot{
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
  /*icons to use on the dashboard*/
  .icon{
      width: 40px;
@@ -482,6 +504,7 @@ input[type=text]{
  }
 .edit{
 	font-weight: bold;
+	color: black;
 	font-family: Verdana;
 	left: 615px;
 	top: -15px;
@@ -575,7 +598,7 @@ input[type=text]{
 .logoutoptions{
 	width: 100px;
 	height: 80px;
-	background-color: #C19434;
+	background-color: #000000;
 	left: 919px;
 	top: 26px;
 	position:relative;
@@ -600,7 +623,7 @@ input[type=text]{
 .logoutoptionsopenpost{
 	width: 100px;
 	height: 80px;
-	background-color: #C19434;
+	background-color: #000000;
 	left: 1229px;
 	top: 26px;
 	position:relative;
@@ -626,7 +649,7 @@ input[type=text]{
 .editarea{
     width: 300px;
     height: 200px;
-    background-color: #34421E;
+    background-color: #4a161a;
     border-radius: 5px;
     transform: scale(2,2);
     top: 250px;
@@ -649,7 +672,7 @@ input[type=text]{
 .editarea label{
 	font-family: verdana;
 	font-size: 15px;
-	color: #C19434;
+	color: #000000;
 	top: 25px;
 	left: 100px;
 	position: relative;
@@ -713,7 +736,7 @@ input[type=text]{
 .editarea form input[type=submit]{
 	margin-left: 190px;
 	border:none;
-	background-color: #C19434;
+	background-color: #000000;
 	color: white;
 	font-size: 18px;
 	font-family: verdana;
@@ -723,7 +746,7 @@ input[type=text]{
 	margin-left: 187px;
 	margin-top: 15px;
 	border:none;
-	background-color: #C19434;
+	background-color: #000000;
 	color: white;
 	font-size: 18px;
 	font-family: verdana;
@@ -733,7 +756,7 @@ input[type=text]{
 	margin-left: 270px;
 	margin-top: 40px;
 	border:none;
-	background-color: #C19434;
+	background-color: #000000;
 	color: white;
 	font-size: 18px;
 	font-family: verdana;
@@ -743,7 +766,7 @@ input[type=text]{
 	margin-left: 180px;
 	margin-top: 20px;
 	border:none;
-	background-color: #C19434;
+	background-color: #000000;
 	color: white;
 	font-size: 18px;
 	font-family: verdana;
@@ -754,7 +777,7 @@ input[type=text]{
 	margin-left: 200px;
 	margin-top: 45px;
 	border:none;
-	background-color: #C19434;
+	background-color: #000000;
 	color: white;
 	font-size: 18px;
 	font-family: verdana;
@@ -924,8 +947,8 @@ table th {
   font-size: .85em;
   letter-spacing: .1em;
   text-transform: uppercase;
-  background-color: #34421E;
-  color: #C19434;
+  background-color: #4a161a;
+  color: white;
 }
 table tr td:last-child{
     opacity: .7;
@@ -951,12 +974,12 @@ table tr td:first-child{
 	left: 280px;
 	top: 100px;
 	position: relative;
-	border:2px solid #34421E;
+	border:2px solid #4a161a;
 }
 .design{
 	width: 800px;
 	height: 150px;
-	background-color: #C19434;
+	background-color: #000000;
 }
 .design img{
 	width: 80px;
@@ -974,7 +997,7 @@ table tr td:first-child{
 	left: 1100px;
 	position: fixed;
 	text-decoration: none;
-	color: #34421E;
+	color: #4a161a;
 	font-family:bungee;
 	font-size: 11px;
 	width: 300px;
@@ -1047,7 +1070,7 @@ table tr td:first-child{
 .jobposter form input[type=file]{
 	border: none;
 	border-radius: 5px;
-	background-color: #C19434;
+	background-color: #000000;
 	width: 220px;
 	height: 40px;
 	font-family:verdana;
@@ -1062,7 +1085,7 @@ table tr td:first-child{
 	margin-left: 0px;
 	margin-top: 35px;
 	border:none;
-	background-color: #C19434;
+	background-color: #000000;
 	color: white;
 	font-size: 18px;
 	font-family: verdana;
@@ -1080,7 +1103,7 @@ table tr td:first-child{
 	text-decoration: none;
 	font-family: verdana;
 	font-weight: bold;
-	color: #C19434;
+	color: white;
 	/*box-shadow: inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);*/
 	position: relative;
 	border: none;
@@ -1089,7 +1112,7 @@ table tr td:first-child{
 	/*float: left;*/
 }
 #jobbutton{
-	background: #34421E;
+	background: #4a161a;
 }
 #interntable{
 	display: none;

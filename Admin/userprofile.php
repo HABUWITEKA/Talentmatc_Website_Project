@@ -5,6 +5,7 @@
 	<link rel="icon" type="image/png" href="img/talent.png">
 	<link rel="stylesheet" type="text/css" href="admin.css">
 	<script type="text/javascript" src="admin.js"></script>
+	<script type="text/javascript" src="java.js"></script>
 </head>
 <body>
   <div class="upperbarviewuser" >
@@ -23,10 +24,10 @@
 	<button>Print</button>
 	<button>Download</button>
 	<!-- Image, name and joinining  of the user -->
-		<button class="btn" onclick="display()">User Biography</button>
-		<button class="btn">Applications history</button>
-		<button class="btn">Session details</button>
-        <button class="btn" style="background: red;">Remove</button>
+		<button class="btn" onclick="section1display()">User Biography</button>
+		<button class="btn" onclick="section2display()">Applications history</button>
+		<button class="btn" onclick="section3display()">Session details</button>
+        <button class="btn" style="background: red;" onclick="section4display()">Remove</button>
 	<img src="profile.jpg" class="userpicture">
 	<p class="username">Mugisha Yvan</p>
 	<p class="joininginfo">Joined May 2019</p>
@@ -44,7 +45,7 @@
     	
     	<div class="aboutme">
 	      <h1 class="headings">About me</h1>
-	      <p class="aboutmetext"><?php echo $row['Aboutme'] ?></p>
+	      <p class="aboutmetext"></p>
         </div>
         
         <div class="three" >

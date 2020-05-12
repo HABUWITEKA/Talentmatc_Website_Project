@@ -8,7 +8,7 @@ body{
 	width: 250px;
 	height: 665px;
 	position: fixed;
-	background-color: #34421E;
+	background-color: #4a161a;
 }
 .seachbar{
 	top:7px;
@@ -27,7 +27,7 @@ body{
 	height: 50px;
 	left:310px;
 	position: fixed;
-	background-color: #C19434;
+	background-color: #000000;
 	z-index: 100;
 }
 /*Navigation Bar*/
@@ -40,20 +40,19 @@ body{
  	margin-top: 40px;
  	top:200px;
  	left: 12px;
- 	position: relative;
- 	/*background-color: #34421E;*/
+ 	/*background-color: #4a161a;*/
  	width: 238px;
  	height: 40px;
  	padding-left: 15px;
  	padding-top: 10px;
  }
  .menubar nav a:hover{
- 	color: #34421E;
+ 	color: #4a161a;
  	background: #F1F1EF;
  }
 
  .menubar nav .active{
- 	color: #34421E;
+ 	color: #4a161a;
  	background: #F1F1EF;
  	/*border-top-right-radius: 20px;*/
  }
@@ -75,7 +74,7 @@ body{
 
  /*overview box design*/
  .overview{
- 	border: 3px solid indigo;
+ 	border: 3px solid #000000;
  	border-bottom: none;
  	width: 300px;
  	height: 200px;
@@ -86,7 +85,7 @@ body{
  	position: relative;
  }
  .registered{
- 	border-color: green;
+ 	border-color: #4a161a;
  }
 
  .number{
@@ -101,7 +100,7 @@ body{
  	position: absolute;
  }
  .definition{
- 	color: #C19434;
+ 	color: #000000;
  	font-family: verdana;
  	font-size: 20px;
  	margin: 0;
@@ -121,7 +120,7 @@ body{
 	font-family: verdana;
 	font-size: 14px;
 	color: #ffffff;
-	background-color:indigo;
+	background-color:#4a161a;
 	border: none;
 	margin: 0;
  	margin-right: -50%;
@@ -131,7 +130,7 @@ body{
  	position: absolute;
  }
  .registered .viewbtn{
- 	background-color: green;
+ 	background-color: #4a161a;
  }
  .viewbtn:hover{
  	opacity: .8;
@@ -191,7 +190,7 @@ table th {
   font-size: .85em;
   letter-spacing: .1em;
   text-transform: uppercase;
-  background-color: #C19434;
+  background-color: #000000;
   color: white;
 }
 
@@ -213,7 +212,7 @@ table th {
 	top: 150px;
 	left: 300px;
 	/*position: absolute;*/
-	background-color:#C19434;
+	background-color:#000000;
 	width: 150px;
 	height: 150px;
 	box-shadow: 3px 3px 10px 2px #000000;
@@ -241,6 +240,7 @@ table th {
  	font-weight: bold;
  	font-size: 16px;
  	text-align: center;
+ 	color: #4a161a;
 }
 .profile .viewbtn{
 	top: 90px;
@@ -251,7 +251,7 @@ table th {
 	height: 50px;
 	left:0px;
 	position: fixed;
-	background-color: #34421E;
+	background-color: #4a161a;
 	z-index: 100;
 }
  .btn{
@@ -269,7 +269,7 @@ table th {
 	font-family: verdana;
 	font-size: 14px;
 	color: #ffffff;
-	background-color:indigo;
+	background-color:#000000;
 	border: none;
 }
 
@@ -280,7 +280,7 @@ table th {
 	left: 280px;
 	top: 100px;
 	position: relative;
-	/*border:2px solid #34421E;*/
+	/*border:2px solid #4a161a;*/
 }
 .userbox .userpicture{
 	width: 100px;
@@ -343,7 +343,7 @@ table th {
 	position: absolute;
 	width: 760px;
 	height: 300px;
-	background-color: #34421E;
+	background-color: #4a161a;
 }
 .aboutme .headings{
 	margin-right: -50%;
@@ -352,7 +352,7 @@ table th {
  	top:0px;
  	position: absolute;
 	font-family: verdana;
-	color: #C19434;
+	color: #000000;
 	font-size: 15px;
 }
 .aboutme .aboutmetext{
@@ -371,7 +371,7 @@ table th {
 	width: 200px;
     height: 280px;
     float: left;
-    background-color: #34421E;
+    background-color: #4a161a;
     margin-left: 80px;
     position: relative;
     top: 580px;
@@ -385,13 +385,13 @@ table th {
 	font-weight: bold;
 	font-size: 14px;
 	font-family: verdana;
-	color: #C19434;
+	color: #000000;
 }
 .three .title .content{
     color: #F1F1EF;
 }
 .three .name{
-	color: #C19434;
+	color: #000000;
 	font-weight: bold;
 	font-family: verdana;
 	margin: 0;
@@ -409,7 +409,7 @@ table th {
  	top:0px;
  	position: absolute;
 	font-family: verdana;
-	color: #C19434;
+	color: #000000;
 	font-size: 15px;
 }
 .three li{
@@ -443,7 +443,7 @@ table th {
 	text-decoration: none;
 	font-family: verdana;
 	font-weight: bold;
-	color: #C19434;
+	color: #000000;
 	border: none;
 	font-size: 15px;
 	transform: scale(.7,.7);
@@ -464,7 +464,7 @@ table th {
 	display: none;
 }
 #jobbutton{
-	background: #34421E;
+	background: #4a161a;
 }
 
 #section2{
@@ -505,14 +505,14 @@ table th {
 	font-family: verdana;
 	font-size: 14px;
 	color: #ffffff;
-	background-color:indigo;
+	background-color:#000000;
 	border: none;
 }
 #section4 .cancel{
-	background-color:maroon;
+	background-color:black;
 }
 #section4 .proceed{
-	background-color: orange;
+	background-color: #4a161a;
 }
 .userbox .remove{
 	background: red;

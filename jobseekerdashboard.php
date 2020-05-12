@@ -306,7 +306,7 @@ $row = mysqli_fetch_assoc($query);
 		<img class="internshipnext" src="img/next.png">
 		<p class="internshipapply">Apply</p>
 	</div>
-    
+    </a>
 
   <?php 
 } 
@@ -319,6 +319,7 @@ $row = mysqli_fetch_assoc($query);
 
 <!-- Career Guidance section -->
 <div id="Careerresources">
+  <div class="packageone slides">
 	<div class="resource career">
 	<div class="alll">	
 		<img src="img/skol.jpg" class="resourceimg">
@@ -346,6 +347,55 @@ $row = mysqli_fetch_assoc($query);
 	</div>
         <button class="btn">Enroll</button>
 	</div>
+  </div>		
+   <div class="packagetwo slides">
+	<div class="resource career">
+	<div class="alll">	
+		<img src="img/skol.jpg" class="resourceimg">
+		<p class="resourcetitle">Resume Writing</p>
+		<p class="resourcedesc">Learn the best and catching way to write professional resumes that will make you stand out from others.</p>
+		<p class="resourcedetail">3Articles</p>
+	</div>
+		<button class="btn">Enroll</button>
+	</div>
+	<div class="resource career">
+		<div class="alll">	
+		<img src="img/profile.jpg" class="resourceimg">
+		<p class="resourcetitle">Cover Letter Writing</p>
+		<p class="resourcedesc">Learn the best and catching way to write professional resumes that will make you stand out from others.</p>
+		<p class="resourcedetail">2Articles</p>
+	</div>
+	<button class="btn">Enroll</button>
+	</div>
+	<div class="resource career">
+		<div class="alll">	
+		<img src="img/airtel.png" class="resourceimg">
+		<p class="resourcetitle">Inteview Tips</p>
+		<p class="resourcedesc">Learn the best and catching way to write professional resumes that will make you stand out from others.</p>
+		<p class="resourcedetail">2Articles + 2Videos</p>
+	</div>
+        <button class="btn">Enroll</button>
+	</div>
+  </div>
+  <div class="packagethree slides">
+	<div class="resource career">
+	<div class="alll">	
+		<img src="img/skol.jpg" class="resourceimg">
+		<p class="resourcetitle">Resme Writing</p>
+		<p class="resourcedesc">Learn the best and catching way to write professional resumes that will make you stand out from others.</p>
+		<p class="resourcedetail">3Articles</p>
+	</div>
+		<button class="btn">Enroll</button>
+	</div>
+	<div class="resource career">
+		<div class="alll">	
+		<img src="img/profile.jpg" class="resourceimg">
+		<p class="resourcetitle">Cover Letter Writing</p>
+		<p class="resourcedesc">Learn the best and catching way to write professional resumes that will make you stand out from others.</p>
+		<p class="resourcedetail">2Articles</p>
+	</div>
+	<button class="btn">Enroll</button>
+	</div>
 	<div class="resource career">
 		<div class="alll">	
 		<img src="img/airtel.png" class="resourceimg">
@@ -355,6 +405,11 @@ $row = mysqli_fetch_assoc($query);
 	</div>
         <button class="btn">Enroll</button>
 	</div>
+  </div>				
+<div id="slidebuttons">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
 </div>
 </body>
 </html>

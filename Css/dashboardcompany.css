@@ -2,6 +2,7 @@ body{
 	margin: 0;
 	background: #F1F1EF;
 	overflow-x: hidden;
+	overflow-y: hidden;
 }
 .alldiv{
 	transform: scale(.9,.9);
@@ -10,7 +11,7 @@ body{
 	width: 250px;
 	height: 665px;
 	position: fixed;
-	background-color: #34421E;
+	background-color: #4a161a;
 }
 .seachbar{
 	top:7px;
@@ -29,7 +30,7 @@ body{
 	height: 50px;
 	left:310px;
 	position: fixed;
-	background-color: #C19434;
+	background-color: #4a161a;
 	z-index: 100;
 }
 .aboutme{
@@ -38,13 +39,13 @@ body{
 	position: absolute;
 	width: 640px;
 	height: 300px;
-	background-color: #C19434;
+	background-color: white;
 }
 .shortbio{
     left: 1030px;
     top:80px;
     position: absolute;
-    background-color: #C19434;
+    background-color: white;
     width: 370px;
     height: 300px;
 }
@@ -52,7 +53,7 @@ body{
 	width: 370px;
     height: 300px;
     float: left;
-    background-color: #C19434;
+    background-color: white;
     margin-left: 10px;
     left:260px;
     top: 420px;
@@ -91,10 +92,10 @@ body{
 	left: 40%;
 	position:absolute;
 	font-family: verdana;
-	color: #34421E;
+	color: #4a161a;
 }
 .aboutme .aboutmetext{
-	color: #F1F1EF;
+	color: black;
 	font-family: verdana;
 	font-size: 17px;
 	top: 42px;
@@ -120,13 +121,14 @@ body{
 	font-weight: bold;
 	font-size: 14px;
 	font-family: verdana;
-	color: #34421E;
+	color: #4a161a;
 }
 .shortbio .title .content{
-    color: #F1F1EF;
+    color: black;
+    font-weight: normal;
 }
 .shortbio .name{
-	color: #34421E;
+	color: #4a161a;
 	font-weight: bold;
 	font-family: verdana;
 	margin: 0;
@@ -142,7 +144,7 @@ body{
 .headings{
 	font-family: verdana;
 	font-size: 20px;
-	color: #34421E;
+	color: #4a161a;
 	margin: 0;
  	position: absolute;
  	left: 50%;
@@ -159,7 +161,7 @@ body{
 	list-style-type:square;
 	position: relative;
 	font-family: verdana;
-	color: #F1F1EF;
+	color: black;
 
 }
 
@@ -182,19 +184,19 @@ body{
  	top:60px;
  	left: 12px;
  	position: relative;
- 	/*background-color: #34421E;*/
+ 	/*background-color: #4a161a;*/
  	width: 238px;
  	height: 40px;
  	padding-left: 15px;
  	padding-top: 10px;
  }
  .menubar nav a:hover{
- 	color: #34421E;
+ 	color: #4a161a;
  	background: #F1F1EF;
  }
 
  .menubar nav .active{
- 	color: #34421E;
+ 	color: #4a161a;
  	background: #F1F1EF;
  	/*border-top-right-radius: 20px;*/
  }
@@ -247,6 +249,7 @@ body{
 	transform: scale(1.1,1.1);
 	opacity: .7;
 	cursor: hand;
+	color: #4a161a;
 }
 .edit:hover{
 	opacity: 1;
@@ -266,6 +269,7 @@ body{
 	position: relative;
 	transform: scale(1.1,1.1);
 	opacity: .7;
+	color: #4a161a;
 }
 .edit2:hover{
 	opacity: 1;
@@ -276,6 +280,7 @@ body{
      left: -12px;
      top: 2px;
      position: relative;
+
  }
 .edit3{
 	font-weight: bold;
@@ -285,6 +290,7 @@ body{
 	position: relative;
 	/*transform: scale(1.1,1.1);*/
 	opacity: .7;
+	color: #4a161a;
 }
 .edit3:hover{
 	opacity: 1;
@@ -304,6 +310,7 @@ body{
 	position: relative;
 	/*transform: scale(1.1,1.1);*/
 	opacity: .7;
+	color: #4a161a;
 }
 .edit4:hover{
 	opacity: 1;
@@ -318,6 +325,7 @@ body{
 	left: 999px;
 	top: 15px;
 	position: relative;
+	background: #4a161a;
 }
 #logout{
 	display: none;
@@ -325,7 +333,7 @@ body{
 .logoutoptions{
 	width: 100px;
 	height: 80px;
-	background-color: #34421E;
+	background-color: #4a161a;
 	left: 919px;
 	top: 26px;
 	position:relative;
@@ -351,16 +359,14 @@ body{
 .editarea{
     width: 300px;
     height: 200px;
-    background-color: #C19434;
+    background-color: white;
     border-radius: 5px;
     transform: scale(2,2);
     top: 250px;
     left: 670px;
     position: fixed;
     z-index: 1;
-    -moz-box-shadow :  3px 3px 10px 0 #000000;
-    -webkit-box-shadow :  3px 3px 10px 0 #000000;
-    box-shadow :  3px 3px 10px 2px #000000;
+    box-shadow :  1px 1px 1px 2px #4a161a;
 }
 .account input[type=text]{
 	left: 100px;
@@ -391,7 +397,7 @@ body{
 .editarea label{
 	font-family: verdana;
 	font-size: 15px;
-	color: #34421E;
+	color: #4a161a;
 	top: 25px;
 	left: 100px;
 	position: relative;
@@ -455,7 +461,7 @@ body{
 .editarea form input[type=submit]{
 	margin-left: 190px;
 	border:none;
-	background-color: #34421E;
+	background-color: #4a161a;
 	color: white;
 	font-size: 18px;
 	font-family: verdana;
@@ -465,7 +471,7 @@ body{
 	margin-left: 187px;
 	margin-top: 15px;
 	border:none;
-	background-color: #34421E;
+	background-color: #4a161a;
 	color: white;
 	font-size: 18px;
 	font-family: verdana;
@@ -475,7 +481,7 @@ body{
 	margin-left: 270px;
 	margin-top: 40px;
 	border:none;
-	background-color: #34421E;
+	background-color: #4a161a;
 	color: white;
 	font-size: 18px;
 	font-family: verdana;
@@ -485,7 +491,7 @@ body{
 	margin-left: 180px;
 	margin-top: 20px;
 	border:none;
-	background-color: #34421E;
+	background-color: #4a161a;
 	color: white;
 	font-size: 18px;
 	font-family: verdana;
@@ -496,7 +502,7 @@ body{
 	margin-left: 200px;
 	margin-top: 45px;
 	border:none;
-	background-color: #34421E;
+	background-color: #4a161a;
 	color: white;
 	font-size: 18px;
 	font-family: verdana;
@@ -657,7 +663,7 @@ table th {
   font-size: .85em;
   letter-spacing: .1em;
   text-transform: uppercase;
-  background-color: #C19434;
+  background-color: white;
   color: white;
 }
 
@@ -689,7 +695,7 @@ table th {
 	font-family: verdana;
 	font-size: 30px;
 	font-weight: bold;
-	color: #34421E;
+	color: #4a161a;
 }
 .addjobdiv{
 	cursor:progress;
@@ -714,7 +720,7 @@ table th {
 	left: 475px;
 	top: 100px;
 	position: absolute;
-	background-color: #C19434;
+	background-color: white;
 	width: 700px;
 	height: 550px;
 }
@@ -739,6 +745,7 @@ table th {
 .postajob label{
 	font-family: verdana;
 	font-size: 15px;
+	color: #4a161a;
 }
 .postajob .label1{
 	margin:0;
@@ -815,7 +822,7 @@ table th {
 	left: 50%;
 	top: 15px;
     border:none;
-	background-color: #34421E;
+	background-color: #4a161a;
 	color: white;
 	font-size: 18px;
 	font-family: verdana;
@@ -847,7 +854,7 @@ table th {
 	left: 360px;
 	top: 100px;
 	position: absolute;
-	background-color: #C19434;
+	background-color: white;
 	width: 700px;
 	height: 550px;
 
@@ -949,7 +956,7 @@ table th {
 	left: 50%;
 	top: 15px;
     border:none;
-	background-color: #34421E;
+	background-color: #4a161a;
 	color: white;
 	font-size: 18px;
 	font-family: verdana;

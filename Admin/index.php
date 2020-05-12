@@ -15,7 +15,7 @@
     </nav>
 </div>
 <div class="upperbar">
-	<input type="text" name="searchbar" class="seachbar" placeholder="Search for any Job">
+	<input type="text" name="searchbar" class="seachbar" placeholder="Search for a user">
 	<!-- <img src="<?php echo 'companylogos/' . $row['Companylogo'] ?>" class="logoutpic" onerror="this.src='img/add.svg'">
 	<img src="img/arrow.svg" class="arrow" onclick="logout()">
 	<div class="logoutoptions" id="logout">

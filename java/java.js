@@ -414,7 +414,7 @@ function jobswitch(){
 
 	jobtable.style.display="";
 	interntable.style.display="none";
-	jobbutton.style.background="#34421E";
+	jobbutton.style.background="#4a161a";
 	internbutton.style.background="";
 }
 function internswitch(){
@@ -423,7 +423,7 @@ function internswitch(){
 
 	jobtable.style.display="none";
 	interntable.style.display="inline-block";
-	internbutton.style.background="#34421E";
+	internbutton.style.background="#4a161a";
 	jobbutton.style.background="none";
 }
 function close1(){
@@ -445,4 +445,31 @@ function close2(){
 function close3(){
 	var bioedit= document.getElementById("bioedit");
 	bioedit.style.display="none";
+}
+//slide functions
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("slides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++){
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++){
+      dots[i].className = dots[i].className.replace(" activeslide", "");
+  }
+  slides[slideIndex-1].style.display="block";  
+  dots[slideIndex-1].className += " activeslide";
 }

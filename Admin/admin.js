@@ -55,7 +55,7 @@ function jobswitch(){
 
 	jobtable.style.display="";
 	interntable.style.display="none";
-	jobbutton.style.background="#34421E";
+	jobbutton.style.background="#4a161a";
 	internbutton.style.background="";
 }
 function internswitch(){
@@ -64,55 +64,9 @@ function internswitch(){
 
 	jobtable.style.display="none";
 	interntable.style.display="block";
-	internbutton.style.background="#34421E";
+	internbutton.style.background="#4a161a";
 	jobbutton.style.background="none";
 }
 
 // section switches
 
-function display() {
-	var section1 = document.getElementById("section1");
-	var section2 = document.getElementById("section2");
-	var section3 = document.getElementById("section3");
-	var section4 = document.getElementById("section4");
-
-	section1.style.display="block";
-	section2.style.display="none";
-	section3.style.display="none";
-	section4.style.display="none";
-
-	console.log(2);
-}
-// function section2display() {
-// 	var section1 = document.getElementById("section1");
-// 	var section2 = document.getElementById("section2");
-// 	var section3 = document.getElementById("section3");
-// 	var section4 = document.getElementById("section4");
-
-// 	section1.style.display="none";
-// 	section2.style.display="block";
-// 	section3.style.display="none";
-// 	section4.style.display="none";
-// }
-// function section3display() {
-// 	var section1 = document.getElementById("section1");
-// 	var section2 = document.getElementById("section2");
-// 	var section3 = document.getElementById("section3");
-// 	var section4 = document.getElementById("section4");
-
-// 	section1.style.display="none";
-// 	section2.style.display="none";
-// 	section3.style.display="block";
-// 	section4.style.display="none";
-// }
-// function section4display() {
-// 	var section1 = document.getElementById("section1");
-// 	var section2 = document.getElementById("section2");
-// 	var section3 = document.getElementById("section3");
-// 	var section4 = document.getElementById("section4");
-
-// 	section1.style.display="none";
-// 	section2.style.display="none";
-// 	section3.style.display="none";
-// 	section4.style.display="block";
-// }

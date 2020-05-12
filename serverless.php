@@ -11,6 +11,7 @@ if (isset($_POST['submitjobseeker'])) {
 	//Grabbing all that the user entere
 
 	$Fullname = mysqli_real_escape_string($connection,$_POST['Fullname']);
+  $Gender = mysqli_real_escape_string($connection, $_POST['Gender']);
 	$Email = mysqli_real_escape_string($connection, $_POST['email']);
 	$Password = mysqli_real_escape_string($connection, $_POST['password1']);
 	$ConfirmedPassword = mysqli_real_escape_string($connection, $_POST['password2']);
@@ -58,8 +59,8 @@ if (isset($_POST['submitjobseeker'])) {
   if (count($errors) == 0) {
 if(move_uploaded_file($_FILES["resume"]["tmp_name"], $target_file)) {
         $password_hash = md5($Password);//encrypt the password before saving in the database
-    $query = "INSERT INTO studentusers (email,password,Fullname,Currentuniv,telephone,Degree,Graduation,Resume) 
-          VALUES ('$Email', '$password_hash', '$Fullname', '$University', '$Telephone','$Degree','$Graduation','$resumeName')";
+    $query = "INSERT INTO studentusers (email,password,Fullname,Gender,Currentuniv,telephone,Degree,Graduation,Resume) 
+          VALUES ('$Email', '$password_hash', '$Fullname','$Gender', '$University', '$Telephone','$Degree','$Graduation','$resumeName')";
         if(mysqli_query($connection, $query)){
           header('location:welcomejobseeker.php');
           $msg = "Image uploaded and saved in the Database";
