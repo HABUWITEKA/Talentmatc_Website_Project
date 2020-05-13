@@ -43,23 +43,119 @@
 	</div>
 	<!-- Most famous job application -->
 	<div class="famousjob">
-		<h1>Most job applications</h1>
-		<table class="table1">
-		  <tr>	
-			<th>Company</th>
-			<th>Job title</th>
-			<th>Job field</th>
-			<th>Applicants</th>
-		  </tr>
-		  <tr>
-		  	<td>RDB</td>
-		  	<td>Social media manager</td>
-		  	<td>Communication</td>
-		  	<td>98</td>
-		  </tr>	
-		</table>
+		<div class="titles">
+			<h1>Popular Jobs</h1>
+		</div>
+		<ul>
+     <li>
+      <img src="profile.jpg" />
+      <p>Job 1</p>
+    </li>
+    <li>
+      <img src="profile.jpg" />
+      <p>Job 2</p>
+    </li>
+    <li>
+      <img src="profile.jpg" />
+      <p>Job 3</p>
+    </li>
+    <li>
+      <img src="profile.jpg" />
+      <p>Job 4</p>
+    </li>
+    <li>
+      <img src="profile.jpg" />
+      <p>Job 5</p>
+    </li>
+  </ul>
 	</div>
-   </div>
+	<!-- Famous intenrshipa -->
+	<div class="famousjob">
+		<div class="titles">
+			<h1>Popular Internships</h1>
+		</div>
+		<ul>
+     <li>
+      <img src="profile.jpg" />
+      <p>Internship 1</p>
+    </li>
+    <li>
+      <img src="profile.jpg" />
+      <p>Internship 2</p>
+    </li>
+    <li>
+      <img src="profile.jpg" />
+      <p>Internship 3</p>
+    </li>
+    <li>
+      <img src="profile.jpg" />
+      <p>Internship 4</p>
+    </li>
+    <li>
+      <img src="profile.jpg" />
+      <p>Internship 5</p>
+    </li>
+  </ul>
+	</div>
+	<!-- Popular companies  -->
+	<div class="famousjob">
+		<div class="titles">
+			<h1>Popular companies</h1>
+		</div>
+	
+    <ul>
+  
+     <li>
+      <img src="profile.jpg" />
+      <p>Company 1</p>
+    </li>
+    <li>
+      <img src="profile.jpg" />
+      <p>Company 2</p>
+    </li>
+    <li>
+      <img src="profile.jpg" />
+      <p>Company 2</p>
+    </li>
+    <li>
+      <img src="profile.jpg" />
+      <p>Company 2</p>
+    </li>
+    <li>
+      <img src="profile.jpg" />
+      <p>Company 2</p>
+    </li>
+  </ul>
+</div>
+<div class="famousjob">
+		<div class="titles">
+			<h1>Popular Courses</h1>
+		</div>
+		<ul>
+     <li>
+      <img src="profile.jpg" />
+      <p>Course 1</p>
+    </li>
+    <li>
+      <img src="profile.jpg" />
+      <p>Course 2</p>
+    </li>
+    <li>
+      <img src="profile.jpg" />
+      <p>Course 3</p>
+    </li>
+    <li>
+      <img src="profile.jpg" />
+      <p>Course 4</p>
+    </li>
+    <li>
+      <img src="profile.jpg" />
+      <p>Course 5</p>
+    </li>
+  </ul>
+	</div>
+  </div>	
+
 	<!-- display onlineusers -->
 	<div id="onlineusers">
 		<h1>Online users now!</h1>

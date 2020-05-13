@@ -41,8 +41,8 @@
  <div id="Step3">
  	<h1 class="step3">Documents upload</h1>
    <section id="step3form">
- 	<label>Company Bio (Only pdf)<span>*</span></label><br>
- 	<input type="file" name="Companybio" accept="Application/pdf" required>
+ 	<label>Company Bio (Only pdf)<span>[optional]</span></label><br>
+ 	<input type="file" name="Companybio" accept="Application/pdf">
   </section>	
  <input class="next finish" type="submit" name="submitemployeeseeker" value="Finish">
 </form>

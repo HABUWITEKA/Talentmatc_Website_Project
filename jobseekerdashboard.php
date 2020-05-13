@@ -1,5 +1,10 @@
 <?php
-//session_start();
+session_start();
+if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
+
+header ("Location: jobseekerlogin.php");
+
+}
 include('serverless.php');
 $email=$_SESSION['email'];
 $dbconnect=mysqli_connect('localhost', 'HABUWITEKA', '17170', 'talentmatch');
@@ -396,8 +401,8 @@ $row = mysqli_fetch_assoc($query);
 	</div>
 	<button class="btn">Enroll</button>
 	</div>
-	<div class="resource career">
-		<div class="alll">	
+	<div class="resource career" style="background: red;">
+		<div class="alll" >	
 		<img src="img/airtel.png" class="resourceimg">
 		<p class="resourcetitle">Interview Tips</p>
 		<p class="resourcedesc">Learn the best and catching way to write professional resumes that will make you stand out from others.</p>

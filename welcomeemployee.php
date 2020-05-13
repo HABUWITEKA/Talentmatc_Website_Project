@@ -1,4 +1,11 @@
+<?php
+session_start();
+if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 
+header ("Location: employeeseekerlogin.php");
+
+}
+   ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +14,8 @@
 </head>
 <body>
 <!-- Welcome message -->
-<p class="welcomemsg">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
-<img src="img/profile.jpg" class="profilepp">
+<p class="welcomemsg">We are delighted to have you among us. On behalf of all the members and the management, we would like to extend our warmest welcome to your company and good wishes!We are connecting job seekers and companies and we are hopeful that your company will hire the best in the field.</p>
+<img src="img/talent.png" class="profilepp">
 <p class="name">Welcome</p>
 <a href="employeeseekerlogin.php"><button class="btn">Sign in</button></a>
 </body>

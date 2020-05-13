@@ -359,7 +359,7 @@ body{
 .editarea{
     width: 300px;
     height: 200px;
-    background-color: white;
+    background-color: black;
     border-radius: 5px;
     transform: scale(2,2);
     top: 250px;
@@ -664,7 +664,7 @@ table th {
   letter-spacing: .1em;
   text-transform: uppercase;
   background-color: white;
-  color: white;
+  color: black;
 }
 
 /* company side*/
@@ -720,7 +720,7 @@ table th {
 	left: 475px;
 	top: 100px;
 	position: absolute;
-	background-color: white;
+	background-color: black;
 	width: 700px;
 	height: 550px;
 }

@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
+
+header ("Location: jobseekerlogin.php");
+
+}
  include('serverlesscompany.php');
  $email=$_SESSION['email'];
  // include('serverless.php');

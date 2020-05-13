@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
+
+header ("Location: employeeseekerlogin.php");
+
+}
  include('serverlesscompany.php');
 $dbconnect=mysqli_connect('localhost', 'HABUWITEKA', '17170', 'talentmatch');
 if (isset($_POST['updateinternship'])) {

@@ -9,7 +9,12 @@ body{
 	position: fixed;
 }
 
-
+.ourlogo{
+	height: 80px;
+	left: 1000px;
+	top: 100px;
+	position: relative;
+}
 .button-container{
 	/*width: 850px;*/
 	height: 200px;

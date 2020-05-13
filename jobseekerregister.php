@@ -47,7 +47,7 @@
  <div id="Step3">
  	<h1 class="step3">Documents upload</h1>
    <section id="step3form">
- 	<label>Resume/CV (Pdf only)[Optional]</label><br>
+ 	<label>Resume/CV (Pdf only)<span>[optional]</span></label><br>
  	<input type="file" name="resume" accept="Application/pdf">
   </section>	
 

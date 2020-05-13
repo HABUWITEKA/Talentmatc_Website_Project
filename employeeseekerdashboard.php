@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
+
+header ("Location: employeeseekerlogin.php");
+
+}
 include('serverlesscompany.php');
 $email=$_SESSION['email'];
 $dbconnect=mysqli_connect('localhost', 'HABUWITEKA', '17170', 'talentmatch');
@@ -150,11 +156,6 @@ $roww = mysqli_fetch_assoc($queryy);
 	</div>
 <div class="three">
 	<h1 class="headings">Documents</h1>
-	<ul class="Skills">
-		<li>Advanced Certificate</li>
-		<li>Market Analysis</li>
-		<li>Valentine_resume</li>
-	</ul>
 	<p class="edit4">Upload<span><img class="icon4" src="img/upload.svg"></span></p>
 </div>
 </section>	
@@ -290,7 +291,6 @@ $roww = mysqli_fetch_assoc($queryy);
 
  <!-- Applicants section for company -->
  <div id="applicants">
- 	<p>Applicants corner</p>
  </div>
 </body>
 </html>

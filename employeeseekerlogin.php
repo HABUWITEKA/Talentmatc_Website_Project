@@ -5,6 +5,7 @@
 	<title>Login - Employee seeker</title>
 	<!-- For welcome page and login pages only @style.css -->
 	<link rel="stylesheet" type="text/css" href="Css/style.css">
+	<link rel="icon" type="image/png" href="img/talent.png" sizes="100x70">
 </head>
 <body>
 	<h1 class="actiontitle">Ready to login</h1>

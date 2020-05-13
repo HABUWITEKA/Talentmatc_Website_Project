@@ -138,25 +138,86 @@ body{
 
  /*famous jobs*/
  .famousjob{
- 	width: 1056px;
- 	height: 300px;
-	left:310px;
-	top: 370px;
-	position: absolute;
-	/*background-color: maroon/*;*/
-*/	
+ 	width:450px;
+ 	height: 380px;
+ 	top: 150px;
+ 	left: 205px;
+ 	position: relative;
+ 	background: #000000;
+ 	float: left;
+ 	margin-left: 105px;
+ 	margin-top: 20px;
  }
- .famousjob h1{
- 	font-family: verdana;
- 	font-size: 20px;
+ .titles{
+ 	background: red;
+ 	width: 450px;
+ 	height: 40px;
  	margin: 0;
- 	margin-right: -50%;
- 	transform: translate(-50%,50%);
- 	left: 50%;
- 	top: 20px;
- 	position: absolute;
+ }
+ .titles h1{
+ 	font-family: verdana;
+ 	font-size: 14px;
+ 	color: #f1f1f1;
+ 	margin-top: 0px;
+ 	margin-left: 15px;
+ 	top: 10px;
+ 	position: relative;
+ }
+ .famousjob li{
+ 	color: white;
+ 	font-family: verdana;
+ 	margin-top: 20px;
  }
 
+.popular{
+	margin: 0;
+	margin-top: 25px;
+	top: 10px;
+	left: 30px;
+	position: relative;
+	width: 400px;
+}
+.popular:hover{
+	border-bottom: 1px solid blue;
+}
+.popular p{
+	color: white;
+	font-family: verdana;
+	font-size: 15px;
+	margin-left: 10px;
+	cursor: hand;
+}
+ul {
+  list-style-type: none;
+  width: 600px;
+  top: -45px;
+  left: -110px;
+  position: absolute;
+  transform: scale(.7,.7);
+}
+
+li img {
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin: 0 15px 0 0;
+}
+
+ul li p {
+  font-family: verdana;
+  font-size: 20px;
+}
+
+ul li {
+  padding: 5px;
+  overflow: auto;
+}
+
+ul li:hover {
+  border-bottom: 1px solid
+  red;
+}
+ 
  /*Table styling venue*/
  .table1 {
   border: 1px solid #ccc;
@@ -171,7 +232,6 @@ body{
   top: 50px;
   position: absolute;
   font-family: Microsoft Yahei UI;
-}
 }
 
 table tr {
@@ -400,7 +460,6 @@ table th {
  	top:85px;
  	margin-right: -50%;
  	transform: translate(-50%, -50%);
-
 }
 .three .headings{
 	margin-right: -50%;
