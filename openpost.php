@@ -1,10 +1,10 @@
 <?php
-session_start();
-if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
+// session_start();
+// if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 
-header ("Location: jobseekerlogin.php");
+// header ("Location: jobseekerlogin.php");
 
-}
+// }
  include('serverlesscompany.php');
  $email=$_SESSION['email'];
  // include('serverless.php');
@@ -16,13 +16,14 @@ $id = isset($_GET['ID']) ? $_GET['ID'] : '';
 
 //selecting data associated with this particular id
 $result = mysqli_query($dbconnect, "SELECT * FROM jobsposting WHERE ID='$id'");
-
+$querry = mysqli_query($dbconnect, "SELECT * FROM studentusers WHERE email='$email'");
+$row = mysqli_fetch_assoc($querry);
 while($res = mysqli_fetch_array($result))
 {
     $jobtitle = $res['Jobtitle'];
     $jobdeadline = $res['Deadline'];
     $joblocation = $res['location'];
-    $jobindustry = $res['Jobindustry'];
+    
     $jobdescription = $res['jobdescriptionpdf'];
     $emaill = $res['Email'];
 }
@@ -37,10 +38,25 @@ while ($anotheres=mysqli_fetch_array($anotherresult)) {
 <!-- Php side of keeping track of who applied -->
 <?php
 if (isset($_POST['applyjob'])) {
-    $useremail = $_SESSION['email'];
-    $save = "INSERT INTO applications(Email, Company, Jobname, Jobdeadline, Jobfield) VALUES ('$useremail','$companyname', '$jobtitle', '$jobdeadline', '$jobindustry')";
-    mysqli_query($dbconnect, $save);
+    $save = "INSERT INTO applications(Email, Company, Jobname, Jobdeadline) VALUES ('$email','$companyname', '$jobtitle', '$jobdeadline')";
+    mysqli_query($dbconnect, $save) or die(mysqli_error($dbconnect));
 }
+if (isset($_POST['applyjob'])) {
+    // for the database
+    $profileImageName = time() . '-' . $_FILES["jobresume"]["name"];
+    // For image upload
+    $target_dir = "Admin/Jobresumes/";
+    $target_file = $target_dir . basename($profileImageName);
+    // VALIDATION
+    // Upload image only if no errors
+
+      if(move_uploaded_file($_FILES["jobresume"]["tmp_name"], $target_file)) {
+        $sql = "UPDATE applications SET Resume='$profileImageName' WHERE email='$email' AND Jobname='$jobtitle' ";
+        mysqli_query($dbconnect, $sql);
+        
+      } 
+    
+  }
 
  ?>
    
@@ -97,15 +113,15 @@ if (isset($_POST['applyjob'])) {
             <p class="desc">Deadline: <?php echo $jobdeadline; ?></p>
         </div>
         <h1>Job Description</h1>
-        <iframe src="assignment.pdf.pdf"></iframe>
+        <iframe src="Jobdescriptions/<?php echo $jobdescription; ?>"></iframe>
         <!-- Submit documents needed for the -->
         <h1 class="doc">Submit documents</h1>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <label class="label">Upload your Resume/CV(Only Pdf)</label>
             <label class="label">Upload your Cover letter(Only Pdf)</label>
-            <input type="file" name="cvforjob" accept="Application/pdf">
-            <input type="file" name="letterforjob" accept="Application/pdf">
-            <input type="submit" name="applyjob" value="Submit" onclick="alert('Thank you! we will reach out to you ASAP!'), window.close()">
+            <input type="file" name="jobresume" accept="Application/pdf">
+            <input type="file" name="jobletter" accept="Application/pdf">
+            <input type="submit" name="applyjob" value="Submit">
         </form>
     </div>
 </body>

@@ -177,6 +177,36 @@ label span{
 	left:1098px;
 	position: absolute;
 }
+.backbtn{
+	display: inline-block;
+	padding: 0.7em 1.4em;
+	margin: 0 0.3em 0.3em 0;
+	border-radius: 0.15em;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: verdana;
+	font-size: 14px;
+	color: #ffffff;
+	background-color:#4a161a;
+	border: none;
+	top: 7px;
+	position: relative;
+}
+.backbtn2{
+	display: inline-block;
+	padding: 0.7em 1.4em;
+	margin: 0 0.3em 0.3em 0;
+	border-radius: 0.15em;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-family: verdana;
+	font-size: 14px;
+	color: #ffffff;
+	background-color:#4a161a;
+	border: none;
+	top: -7px;
+	position: relative;
+}
 .nextcompany{
 	display: inline-block;
 	padding: 0.7em 1.4em;
@@ -194,23 +224,27 @@ label span{
 	position: absolute;
 }
 .finish{
-	top:340px;
-	left:1070px;
+	top:365px;
+	left:250px;
+	position: absolute;
+}
+.finish2{
+	top: 250px;
 	position: absolute;
 }
 #next1{
 	display: block;
 }
-#next2{
+/*#next2{
 	display: none;
 	top: 515px;
 	position: absolute;
 	
-}
+}*/
 #back1{
 	display: none;
 	top:515px;
-	left: 840px;
+	/*left: 840px;*/
 	position: absolute;
 }
 #back2{

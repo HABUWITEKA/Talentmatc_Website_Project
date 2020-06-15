@@ -1,3 +1,12 @@
+<?php
+include('serverless.php');
+include('serverlesscompany.php');
+$dbconnect=mysqli_connect('localhost', 'HABUWITEKA', '17170', 'talentmatch');
+$query = mysqli_query($dbconnect, "SELECT * FROM studentusers");
+$query2 = mysqli_query($dbconnect, "SELECT * FROM studentprofiles");
+$row = mysqli_fetch_assoc($query);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +21,7 @@
 	<nav>
 	<a href="#" id="link1" class="active" onclick="jobseeker(); activatelink1()">Job seekers</a>
 	<a href="#" id="link2" onclick="company(); activatelink2()">Companies</a>
+  <a href="#" id="link3" onclick="job();activatelink3()">Jobs</a>
     </nav>
 </div>
 <div class="upperbar">
@@ -159,26 +169,26 @@
 	<!-- display onlineusers -->
 	<div id="onlineusers">
 		<h1>Online users now!</h1>
-		<div class="profile">
-           <img class="userpicture" src="profile.jpg">
-           <p class="username">Mugisha Yvan</p>
-           <a href="userprofile.php" target="_blank"><button class="viewbtn">Visit</button></a>
-		</div>
-		<div class="profile">
-           <img class="userpicture" src="profile.jpg">
-           <p class="username">Mugisha Yvan</p>
-           <button class="viewbtn">Visit</button>
-		</div>
-		<div class="profile">
-           <img class="userpicture" src="profile.jpg">
-           <p class="username">Mugisha Yvan</p>
-           <button class="viewbtn">Visit</button>
-		</div>
-		<div class="profile">
-           <img class="userpicture" src="profile.jpg">
-           <p class="username">Mugisha Yvan</p>
-           <button class="viewbtn">Visit</button>
-		</div>
+		
+      <?php 
+  
+  $result = mysqli_query($dbconnect, "SELECT * FROM studentusers");
+  
+  while ($mydata = mysqli_fetch_assoc($result)) 
+    { 
+      
+ ?><div class="profile">
+      <img class="userpicture" src="<?php echo 'Profilepictures - Jobseeker/' . $row['profilepicture'] ?>" onerror="this.src='close.png'">
+           <p class="username"><?php echo $mydata['Fullname'] ?></p>
+           <a href="userprofile.php?Fullname=<?php echo $mydata['Fullname'] ?>" target="_blank"><button class="viewbtn">Visit</button></a>
+           </div>
+  <?php 
+   
+  }?>
+  ?>
+           
+	
+		
 	</div>
 </div>
 <!-- ****************************************************************************************** -->
@@ -197,5 +207,42 @@
 		<button class="viewbtn">View</button>
 	</div>
 </div>
+
+
+
+<!-- Company overview -->
+<div id="jobs">
+  <section id="jobsection">
+    <table id="tablejobs">
+      <tr>
+         <th>Job Id</th>
+         <th>Job Title</th>
+         <th>Action</th>
+      </tr>
+      <?php 
+  
+  $result = mysqli_query($dbconnect, "SELECT * FROM jobsposting");
+  
+  while ($all = mysqli_fetch_assoc($result)) 
+    { 
+      
+ ?>
+      <tr>
+      <td><?php echo $all['ID'] ?></td>
+      <td><?php echo $all['Jobtitle'] ?></td>
+      <td>
+       <a href="applicants.php?Jobname=<?php echo $all['Jobtitle'] ?>"><button>View Applicants</button></a>
+        <button>Delete Job</button>
+      </td>
+    </tr>
+  <?php 
+   
+  }?>
+  ?>
+
+
+    </table>
+</section>
+</div>
 </body>
-</html>j
+</html>js

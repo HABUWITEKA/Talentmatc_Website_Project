@@ -14,27 +14,49 @@ function jobseeker(){
 function company() {
 	var jobseekers = document.getElementById("jobseekers");
     var companies = document.getElementById("companies");
-
+    var jobs = document.getElementById("jobs");
     jobseekers.style.display="none";
     companies.style.display="block";
-
+     jobs.style.display="none";
     document.title="Companies overview";
+}
+function job(){
+	var jobs = document.getElementById("jobs");
+	var jobseekers = document.getElementById("jobseekers");
+    var companies = document.getElementById("companies");
+
+    jobseekers.style.display="none";
+    companies.style.display="none";
+    jobs.style.display="block";
+
+    document.title="Jobs";
 }
 function activatelink1() {
 	// body...
 	var element1 = document.getElementById("link1");
 	var element2 = document.getElementById("link2");
-	
+	var element3 =  document.getElementById("link3");
 	element1.classList.add("active");
 	element2.classList.remove("active");
+	element3.classList.remove("active");
 	}
 function activatelink2() {
 	// body...
 	var element1 = document.getElementById("link1");
 	var element2 = document.getElementById("link2");
-	
+	var element3 =  document.getElementById("link3");
 	element2.classList.add("active");
 	element1.classList.remove("active");
+	element3.classList.remove("active");
+}
+function activatelink3() {
+	// body...
+	var element1 = document.getElementById("link1");
+	var element2 = document.getElementById("link2");
+	var element3 =  document.getElementById("link3");
+	element2.classList.remove("active");
+	element1.classList.remove("active");
+	element3.classList.add("active");
 }
 
 function displayonlineusers(){

@@ -1,7 +1,25 @@
+<?php
+include('serverless.php');
+$dbconnect=mysqli_connect('localhost', 'HABUWITEKA', '17170', 'talentmatch');
+$fullname = isset($_GET['Fullname']) ? $_GET['Fullname'] : '';
+
+//selecting data associated with this particular id
+$result = mysqli_query($dbconnect, "SELECT * FROM studentusers WHERE Fullname='$fullname'");
+$mydata = mysqli_fetch_assoc($result);
+$email = $mydata['email'];
+//deleting
+if (isset($_POST['Deleteuser'])) {
+    $fullname = mysqli_real_escape_string($connection, $_POST['Fullname']);
+    $update1= "DELETE from studentusers WHERE Fullname='$fullname'";
+    mysqli_query($dbconnect, $update1);
+    header('location:index.php');
+    # code...
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Mugisha Yvan - Profile</title>
+	<title><?php echo $mydata['Fullname'] ?> - Profile</title>
 	<link rel="icon" type="image/png" href="img/talent.png">
 	<link rel="stylesheet" type="text/css" href="admin.css">
 	<script type="text/javascript" src="admin.js"></script>
@@ -29,37 +47,56 @@
 		<button class="btn" onclick="section3display()">Session details</button>
         <button class="btn" style="background: red;" onclick="section4display()">Remove</button>
 	<img src="profile.jpg" class="userpicture">
-	<p class="username">Mugisha Yvan</p>
+	<p class="username"><?php echo $mydata['Fullname'] ?></p>
 	<p class="joininginfo">Joined May 2019</p>
 	<!-- Contact buttons to call or directly email the user -->
-	<div class="contacticon">
+	<div class="contacticon" onclick="call()">
 		<img class="icon" src="phone.png">
 		<p>Call</p>
 	</div>
-	<div class="contacticon">
+	<div class="contacticon" onclick="email()">
 	    <img class="icon" src="email.png">
 	    <p>Email</p>
     </div>
+    <!-- Pop ups when wanting to call or email -->
+    <div id="call">
+    	<img src="close.png" class="closeimg close1" onclick="closecall()">
+    	<p class="number">+250<?php echo $mydata['telephone'] ?></p>
+    </div>
+     <div id="email">
+    	<img src="close.png" class="closeimg close1" onclick="closeemail()">
+    	<a href="mailto:<?php echo $mydata['email'] ?>" class="number">Email me now!</a>
+    </div>
+
     <!-- Section -->
     <section class="section1" id="section1">
-    	
     	<div class="aboutme">
 	      <h1 class="headings">About me</h1>
-	      <p class="aboutmetext"></p>
+	      <p class="aboutmetext"><?php echo $mydata['Aboutme'] ?></p>
         </div>
         
         <div class="three" >
-	<p class="title">University:<br><span class="content">KIM</span></p>
-	<p class="title">Degree:<br><span class="content">ECONOMICS</span></p>
-	<p class="title">Graduation:<br><span class="content">MAY 2021</span></p>
-	<p class="title">Current status:<br><span class="content">Unemployed</span></p>
+	<p class="title">University:<br><span class="content"><?php echo $mydata['Currentuniv'] ?></span></p>
+	<p class="title">Degree:<br><span class="content"><?php echo $mydata['Degree'] ?></span></p>
+	<p class="title">Graduation:<br><span class="content"><?php echo $mydata['Graduation'] ?></span></p>
+	<p class="title">Current status:<br><span class="content"><?php echo $mydata['status'] ?></span></p>
 	   </div>
 
 	   <div class="three">
 	<h1 class="headings">Interests</h1>
+	<ol class="Interests">
+		<li><?php echo $mydata['Interest1'] ?></li>
+		<li><?php echo $mydata['Interest2'] ?></li>
+		<li><?php echo $mydata['Interest3'] ?></li>
+	</ol>
        </div>
        <div class="three">
 	<h1 class="headings">Skills</h1>
+	<ol class="Interests">
+		<li><?php echo $mydata['Skill1'] ?></li>
+		<li><?php echo $mydata['Skill2'] ?></li>
+		<li><?php echo $mydata['Skill3'] ?></li>
+	</ol>
        </div>
     </section>
     <!-- Another section -->
@@ -76,6 +113,26 @@
 			<th>Field</th>
 			<th>Status</th>
 		</tr>
+		<?php 
+  
+  $result = mysqli_query($dbconnect, "SELECT * FROM applications where Email='$email'");
+  
+  while ($myrow = mysqli_fetch_assoc($result)) 
+  	{ 
+  		
+ ?>
+    	<tr>
+			<td><?php echo $myrow['Jobname'] ?></td>
+			<td><?php echo $myrow['Company'] ?></td>
+			<td><?php echo $myrow['Jobdeadline'] ?></td>
+			<td><?php echo $myrow['Jobfield'] ?></td>
+			<td>Pending</td>
+		</tr>
+  <?php 
+   
+  }?>
+  
+
 	</table>
 
 	<table id="interntable" class="table">
@@ -86,13 +143,25 @@
 			<th>Field</th>
 			<th>Status</th>
 		</tr>
-		<tr>
-			<td>Title</td>
-			<td>Title</td>
-			<td>Title</td>
-			<td>Title</td>
-			<td>Title</td>
+		<?php 
+  
+  $result = mysqli_query($dbconnect, "SELECT * FROM internshipapplication where Email='$email'");
+  
+  while ($myrows = mysqli_fetch_assoc($result)) 
+  	{ 
+  		
+ ?>
+    	<tr>
+			<td><?php echo $myrows['Internshipname'] ?></td>
+			<td><?php echo $myrows['Company'] ?></td>
+			<td><?php echo $myrows['Internshipdeadline'] ?></td>
+			<td><?php echo $myrows['Internshipfield'] ?></td>
+			<td>Pending</td>
 		</tr>
+  <?php 
+   
+  }?>
+
 	</table>
 
 	
@@ -104,9 +173,12 @@
     </section>
     <!-- Another section -->
     <section id="section4">
-    	<p class="decision">Are you sure you want to remove Mugisha Yvan?</p>
-    	<button class="decisionbtn proceed">Proceed</button>
-    	<button class="decisionbtn cancel">Cancel</button>
+    	<p class="decision">Are you sure you want to remove <?php echo $mydata['Fullname']; ?></p>
+    	<form method="post">
+             <input type="hidden" name="Fullname" value="<?php echo $mydata['Fullname']; ?>">
+             <input type="submit" name="Deleteuser" value="Delete" class="decisionbtn proceed">
+                </form>
+    	<button class="decisionbtn cancel" onclick="section1display()">Cancel</button>
     </section>
     
 </div>

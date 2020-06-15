@@ -1,10 +1,5 @@
 <?php
-session_start();
-if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 
-header ("Location: jobseekerlogin.php");
-
-}
 include('serverless.php');
 $email=$_SESSION['email'];
 $dbconnect=mysqli_connect('localhost', 'HABUWITEKA', '17170', 'talentmatch');
@@ -23,6 +18,7 @@ $row = mysqli_fetch_assoc($query);
 	<title>My Dashboard</title>
 	<link rel="icon" type="image/png" href="img/talent.png">
 	<link rel="stylesheet" type="text/css" href="Css/dashboard.css">
+    <script src="java/transition.min.js"></script>
 	<script type="text/javascript" src="java/java.js"></script>
 </head>
 <body>
@@ -41,7 +37,7 @@ $row = mysqli_fetch_assoc($query);
 <!-- division containig search bar with profilepic -->
 <div class="upperbar">
 	<input type="text" name="searchbar" class="seachbar" placeholder="Search for any Job">
-	<img src="<?php echo 'Profilepictures - Jobseeker/' . $row['profilepicture'] ?>" class="logoutpic" onerror="this.src='img/default.png'">
+	<img src="<?php echo 'Profilepictures - Jobseeker/' . $row['profilepicture'] ?>" class="logoutpic" onerror="this.src='img/defaultppp.png'">
 	<img src="img/arrow.svg" class="arrow" onclick="logout()">
 	<div class="logoutoptions" id="logout">
 		<nav>
@@ -60,10 +56,10 @@ $row = mysqli_fetch_assoc($query);
 	<label class="label2">Email</label>
 	<input type="text" name="emailupdate" value="<?php echo $row['email'] ?>">
 	<label class="label3">Change Password</label>
-	<input type="password" name="passwordupdate" placeholder="New Password" value="<?php echo $row['Password'] ?>">
+	<input type="password" name="passwordupdate" placeholder="New Password" value="<?php echo $row['password'] ?>">
 	<input type="password" name="confirmpasswordupdate" placeholder="Confirm New Password">
 	<label class="label4">Telephone</label>
-	<input type="tel" name="telephoneupdate" value="0787282620">
+	<input type="tel" name="telephoneupdate" value="<?php echo $row['telephone'] ?>">
 	<input type="submit" name="saveaccountsettings" value="Save">
 </form>
 </div>
@@ -90,7 +86,7 @@ $row = mysqli_fetch_assoc($query);
 <!-- Quick facts about  the user -->
 <div class="shortbio" >
   <div class="profile">
-	<img src="<?php echo 'Profilepictures - Jobseeker/' . $row['profilepicture'] ?>" onerror="this.src='img/default.png'" class="profilepic">
+	<img src="<?php echo 'Profilepictures - Jobseeker/' . $row['profilepicture'] ?>" onerror="this.src='img/defaultppp.png'" class="profilepic">
 	<img class="changepp" src="img/edit.svg" onclick="changepicture()">
 	<!-- <img src="" class="changepp"> -->
 </div>
@@ -155,7 +151,7 @@ $row = mysqli_fetch_assoc($query);
 		</form>
 	</div>
 <div class="three">
-	<h1 class="headings">Skills</h1>
+	<h1 class="headings">Top skills</h1>
 	<ul class="Skills">
 		<li><?php echo $row['Skill1'] ?></li>
 		<li><?php echo $row['Skill2'] ?></li>
@@ -175,13 +171,20 @@ $row = mysqli_fetch_assoc($query);
 			<input type="submit" name="Updateskills" value="Add/Update">
 		</form>
 	</div>
-<div class="three">
+<div class="three" >
 	<h1 class="headings">Documents</h1>
-	<p class="edit4">Upload<span><img class="icon4" src="img/upload.svg"></span></p>
-	<ul class="Skills">
-		<li><?php echo $row['Resume'] ?></li>
-	</ul>
+	<p class="edit4"onclick="uploaddocument()">Upload<span><img class="icon4" src="img/upload.svg"></span></p>
+	<a class="viewresume" href="resumes/<?php echo $row['Resume'] ?>" target="pdf-frame">View Resume</a>
 	
+</div>
+<!-- upload new documents on the platform -->
+<div class="editarea editprofile" id="documentupload">
+	<img src="img/close.png" class="closeimg close2" onclick="close4()">
+	<p>Upload new Resume(Only Pdf)</p>
+	<form class="profileupdate" method="post" enctype="multipart/form-data">
+		<input type="file" name="resumename" id="updatepp" accept="Application/pdf">
+		<input type="submit" name="documentupload" value="Upload">
+	</form>
 </div>
 </section>
 <!-- My applications section -->
@@ -212,7 +215,7 @@ $row = mysqli_fetch_assoc($query);
 			<td><?php echo $mydata['Company'] ?></td>
 			<td><?php echo $mydata['Jobdeadline'] ?></td>
 			<td><?php echo $mydata['Jobfield'] ?></td>
-			<td>Pending</td>
+			<td><?php echo $mydata['Status'] ?></td>
 		</tr>
   <?php 
    
@@ -267,11 +270,11 @@ $row = mysqli_fetch_assoc($query);
         }
     ?>
 
-  	<a href="openpost.php?ID=<?php echo $mydata['ID'] ?>" target="_blank">
+  	<a href="openpost.php?ID=<?php echo $mydata['ID']?>" target="_blank">
     <div class="jobposting job" id="jobposting" onclick="jobposterdisplay()">
 		<img src="<?php echo 'companylogos/' . $companyimage ?>" class="jobimg">
 		<p class="jobtitle"><?php echo $mydata['Jobtitle'] ?></p>
-		<p class="jobdeadline"><?php echo $mydata['Deadline'] ?></p>
+		<p class="jobdeadline">Deadline:<?php echo $mydata['Deadline'] ?></p>
 		<p class="joblocation"><?php echo $mydata['location'] ?></p>
 		<img class="next" src="img/next.png">
 		<p class="apply" onclick="jobposterdisplay()">Apply</p> 
@@ -281,7 +284,7 @@ $row = mysqli_fetch_assoc($query);
 } 
   ?>
   
-  ?>
+  
 	
 
 </div>
@@ -306,7 +309,7 @@ $row = mysqli_fetch_assoc($query);
   		<div class="internshipposting internship" id="internshipposting" onclick="internshipposterdisplay()">
 		<img src="<?php echo 'companylogos/' . $companyimage ?>" class="jobimg">
 		<p class="internshiptitle"><?php echo $mydata['Internshiptitle'] ?></p>
-		<p class="internshipdeadline"><?php echo $mydata['Deadline'] ?></p>
+		<p class="internshipdeadline">Deadline:<?php echo $mydata['Deadline'] ?></p>
 		<p class="internshiplocation"><?php echo $mydata['location'] ?></p>
 		<img class="internshipnext" src="img/next.png">
 		<p class="internshipapply">Apply</p>
@@ -324,7 +327,8 @@ $row = mysqli_fetch_assoc($query);
 
 <!-- Career Guidance section -->
 <div id="Careerresources">
-  <div class="packageone slides">
+
+  <div id="slides1">
 	<div class="resource career">
 	<div class="alll">	
 		<img src="img/skol.jpg" class="resourceimg">
@@ -353,7 +357,8 @@ $row = mysqli_fetch_assoc($query);
         <button class="btn">Enroll</button>
 	</div>
   </div>		
-   <div class="packagetwo slides">
+  <!-- Slidds 2 -->
+   <div id="slides2">
 	<div class="resource career">
 	<div class="alll">	
 		<img src="img/skol.jpg" class="resourceimg">
@@ -382,7 +387,8 @@ $row = mysqli_fetch_assoc($query);
         <button class="btn">Enroll</button>
 	</div>
   </div>
-  <div class="packagethree slides">
+  <!-- slides 3 -->
+  <div id="slides3">
 	<div class="resource career">
 	<div class="alll">	
 		<img src="img/skol.jpg" class="resourceimg">
@@ -401,7 +407,7 @@ $row = mysqli_fetch_assoc($query);
 	</div>
 	<button class="btn">Enroll</button>
 	</div>
-	<div class="resource career" style="background: red;">
+	<div class="resource career">
 		<div class="alll" >	
 		<img src="img/airtel.png" class="resourceimg">
 		<p class="resourcetitle">Interview Tips</p>
@@ -410,11 +416,12 @@ $row = mysqli_fetch_assoc($query);
 	</div>
         <button class="btn">Enroll</button>
 	</div>
-  </div>				
+  </div>		
+  		<!-- slidesbuttons -->
 <div id="slidebuttons">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-  <span class="dot" onclick="currentSlide(3)"></span> 
+  <span class="dot" onclick="currentslide1()"></span> 
+  <span class="dot" onclick="currentslide2()"></span> 
+  <span class="dot" onclick="currentslide3()"></span> 
 </div>
 </body>
 </html>

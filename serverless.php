@@ -3,7 +3,7 @@
 session_start();
 $errors = array(); 
 // connect to the database
-$connection = mysqli_connect('localhost', 'HABUWITEKA', '17170', 'talentmatch');
+$connection = mysqli_connect('localhost', 'HABUWITEKA', 'Talentmatch2020', 'Talentmatch');
 
 //let's start by registering a JOBSEEKER and keep the human in our db
 
@@ -19,67 +19,41 @@ if (isset($_POST['submitjobseeker'])) {
 	$Telephone = mysqli_real_escape_string($connection, $_POST['Telephone']);
 	$Degree = mysqli_real_escape_string($connection, $_POST['Degree']);
 	$Graduation = mysqli_real_escape_string($connection, $_POST['Graduation']);
-
-  // receiving the pdf name the user gave us as his 
+  $resume = mysqli_real_escape_string($connection, $_POST['resume']);
+  
   
 	// form validation: ensure that the form is correctly filled ...
-  // by adding (array_push()) corresponding error unto $errors array
+ 
   if (empty($Email)) { array_push($errors, "Email is required"); }
   if (empty($Password)) { array_push($errors, "Password is required"); }
   if ($Password != $ConfirmedPassword) {
   array_push($errors, "The two Passwords do not match");
   }
 
-  // first check the database to make sure 
-  // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM studentusers WHERE email='$Email'";
-  $result = mysqli_query($connection, $user_check_query);
-  
-  
-  if (mysqli_num_rows($result) > 1) {
-    array_push($errors, "Email is already registered");
-  }
 
-    // for the database
-    $resumeName = $_FILES["resume"]["name"];
-    // For image upload
-    $target_dir = "resumes/";
-    $target_file = $target_dir . basename($resumeName);
-    // VALIDATION
-    // validate image size. Size is calculated in Bytes
-    if($_FILES['resume']['size'] > 900000) {
-      $msg = "Image size should not be greated than 900Kb";
-      $msg_class = "alert-danger1";
-    }
-    // check if file exists
-    if(file_exists($target_file)) {
-      $msg = "File already exists";
-      $msg_class = "alert-danger2";
-    }
-  if (count($errors) == 0) {
-if(move_uploaded_file($_FILES["resume"]["tmp_name"], $target_file)) {
-        $password_hash = md5($Password);//encrypt the password before saving in the database
+   $password_hash = md5($Password);//encrypt the password before saving in the database
     $query = "INSERT INTO studentusers (email,password,Fullname,Gender,Currentuniv,telephone,Degree,Graduation,Resume) 
-          VALUES ('$Email', '$password_hash', '$Fullname','$Gender', '$University', '$Telephone','$Degree','$Graduation','$resumeName')";
+          VALUES ('$Email', '$password_hash', '$Fullname','$Gender', '$University', '$Telephone','$Degree','$Graduation','$resume')";
         if(mysqli_query($connection, $query)){
+          array_push($errors, "registered");
           header('location:welcomejobseeker.php');
-          $msg = "Image uploaded and saved in the Database";
-          $msg_class = "alert-success";
-        } else {
-          $msg = "There was an error in the database";
-          $msg_class = "alert-danger3";
-        }
-      } 
+        }  
       else {
-        $error = "There was an error uploading the file";
-        $msg = "alert-danger4";
+        array_push($errors, "NOT registered");
       }
-  }
-  // else
-  // {
-  //   array_push($errors, "Email is required");
-  // }
+    }
+    //updating password
+if (isset($_POST['saveaccountsettings'])) {
+  $email = $_SESSION['email'];
+  $name= mysqli_real_escape_string($connection,$_POST['fullnameupdate']);
+  $telephone = mysqli_real_escape_string($connection,$_POST['telephoneupdate']);
+  $password = mysqli_real_escape_string($connection, $_POST['passwordupdate']);
+  $password_hidden = md5($password);
+  $update = "UPDATE studentusers SET Fullname='$name', telephone='$telephone', password='$password_hidden' WHERE email='$email'";
+  mysqli_query($connection,$update);
+  header('location:jobseekerlogin.php');
 }
+ 
 // Let's allow the user to login
 if (isset($_POST['enter2'])) {
   
@@ -228,7 +202,7 @@ if (isset($_POST['saveaccountsettings'])) {
 }
 // Done updating part
 //profile picture stuufss
-$msg = "";
+  $msg = "";
   $msg_class = "";
   if (isset($_POST['Updatepicture'])) {
     $email=$_SESSION['email'];
@@ -266,6 +240,47 @@ $msg = "";
       }
     }
   }
+
+  //uploading resume
+  if (isset($_POST['documentupload'])) {
+    $email=$_SESSION['email'];
+    // for the database
+    $profileImageName = time() . '-' . $_FILES["resumename"]["name"];
+    // For image upload
+    $target_dir = "resumes/";
+    $target_file = $target_dir . basename($profileImageName);
+    // VALIDATION
+    // validate image size. Size is calculated in Bytes
+    if($_FILES['updatepp']['size'] > 200000) {
+      $msg = "Image size should not be greated than 200Kb";
+      $msg_class = "alert-danger1";
+    }
+    // check if file exists
+    if(file_exists($target_file)) {
+      $msg = "File already exists";
+      $msg_class = "alert-danger2";
+    }
+    // Upload image only if no errors
+    if (empty($error)) {
+      if(move_uploaded_file($_FILES["resumename"]["tmp_name"], $target_file)) {
+        $sql = "UPDATE studentusers SET Resume='$profileImageName' WHERE email='$email'";
+        if(mysqli_query($connection, $sql)){
+          header('location:jobseekerdashboard.php');
+          $msg = "Image uploaded and saved in the Database";
+          $msg_class = "alert-success";
+        } else {
+          $msg = "There was an error in the database";
+          $msg_class = "alert-danger3";
+        }
+      } else {
+        $error = "There was an error uploading the file";
+        $msg = "alert-danger4";
+      }
+    }
+  }
+
+
+  // uploading pdf resumes for jobs and keeping them in the folder we created
 
 
  

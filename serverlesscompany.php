@@ -81,6 +81,17 @@ if (isset($_POST['enter1'])) {
     }
   }
 }
+//updating password
+if (isset($_POST['saveaccountsettings'])) {
+  $email = $_SESSION['email'];
+  $name= mysqli_real_escape_string($connection,$_POST['companynameupdate']);
+  $telephone = mysqli_real_escape_string($connection,$_POST['telephoneupdate']);
+  $password = mysqli_real_escape_string($connection, $_POST['passwordupdate']);
+  $password_hidden = md5($password);
+  $update = "UPDATE comapnyusers SET companyname='$name', telephone='$telephone', password='$password_hidden' WHERE email='$email'";
+  mysqli_query($connection,$update);
+  header('location:employeeseekerlogin.php');
+}
 //updating short bio of company
 if (isset($_POST['Updatecompanybio'])) {
    $email=$_SESSION['email'];
@@ -175,40 +186,52 @@ $msg = "";
    $jobdeadline = mysqli_real_escape_string($connection,$_POST['jobdeadline']);
    $joblocation = mysqli_real_escape_string($connection,$_POST['joblocation']);
    $jobfield = mysqli_real_escape_string($connection,$_POST['jobfield']);
-   $jobdescription = mysqli_real_escape_string($connection,$_POST['jobdescription']);
+   //$jobdescription = mysqli_real_escape_string($connection,$_POST['jobdescription']);
 
    $query = "INSERT INTO 
-   jobsposting (Email,Jobtitle,JobIndustry,jobdescriptionpdf,Deadline,location) 
-   VALUES ('$email', '$jobtitle','$Jobindustry', '$jobdescription', '$jobdeadline' , '$joblocation')";
+   jobsposting (Email,Jobtitle,JobIndustry,Deadline,location) 
+   VALUES ('$email', '$jobtitle','$Jobindustry', '$jobdeadline' , '$joblocation')";
    mysqli_query($connection, $query);
    header('location:#');
-
+   //pdf saving
+   $profileImageName = time() . '-' . $_FILES["jobdescriptionpdf"]["name"];
+    // For pdf upload
+    $target_dir = "Jobdescriptions/";
+    $target_file = $target_dir . basename($profileImageName);
+    
+      if(move_uploaded_file($_FILES["jobdescriptionpdf"]["tmp_name"], $target_file)) {
+        $sql = "UPDATE jobsposting SET jobdescriptionpdf='$profileImageName' WHERE email='$email'";
+        if(mysqli_query($connection, $sql)){
+          header('location:employeeseekerdashboard.php');
+      }
   }
+}
   if (isset($_POST['internshipsubmit'])) {
    $email=$_SESSION['email'];
    $internshiptitle = mysqli_real_escape_string($connection,$_POST['internshiptitle']);
    $internshipdeadline = mysqli_real_escape_string($connection,$_POST['internshipdeadline']);
    $internshiplocation = mysqli_real_escape_string($connection,$_POST['internshiplocation']);
    $internshipfield = mysqli_real_escape_string($connection,$_POST['internshipfield']);
-   $internshipdescription = mysqli_real_escape_string($connection,$_POST['internshipdescription']);
+   // $internshipdescription = mysqli_real_escape_string($connection,$_POST['internshipdescriptionpdf']);
 
    $query = "INSERT INTO 
-   internshipposting (Email,Internshiptitle,Internshipindustry,internshipdescriptionpdf,Deadline,location) 
-   VALUES ('$email', '$internshiptitle','$internshipfield', '$internshipdescription', '$internshipdeadline' , '$internshiplocation')";
+   internshipposting (Email,Internshiptitle,Internshipindustry,Deadline,location) 
+   VALUES ('$email', '$internshiptitle','$internshipfield','$internshipdeadline' , '$internshiplocation')";
    mysqli_query($connection, $query);
    header('location:#');
-
+   //pdf saving
+   $profileImageName = time() . '-' . $_FILES["internshipdescriptionpdf"]["name"];
+    // For pdf upload
+    $target_dir = "internshipdescriptions/";
+    $target_file = $target_dir . basename($profileImageName);
+    
+      if(move_uploaded_file($_FILES["internshipdescriptionpdf"]["tmp_name"], $target_file)) {
+        $sql = "UPDATE internshipposting SET internshipdescriptionpdf='$profileImageName' WHERE email='$email'";
+        if(mysqli_query($connection, $sql)){
+          header('location:employeeseekerdashboard.php');
+      }
   }
-
-  //updating and deleting a certain job depending on the id
-// if (isset($_POST['updatejob'])) {
-//     $id = mysqli_real_escape_string($connection, $_POST['ID']);
-//     $title = mysqli_real_escape_string($connection, $_POST['updatejobtitle']);
-//     $update1= "UPDATE jobsposting SET Jobtitle = '$title' WHERE ID='$id'";
-//     mysqli_query($connection, $update1);
-//     header('location:employeeseekerdashboard.php');
-//     # code...
-// }
+  }
 if (isset($_POST['Deletejob'])) {
     $id = mysqli_real_escape_string($connection, $_POST['ID']);
     $update1= "DELETE from jobsposting WHERE ID='$id'";

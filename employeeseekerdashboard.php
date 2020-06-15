@@ -1,10 +1,4 @@
 <?php
-session_start();
-if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
-
-header ("Location: employeeseekerlogin.php");
-
-}
 include('serverlesscompany.php');
 $email=$_SESSION['email'];
 $dbconnect=mysqli_connect('localhost', 'HABUWITEKA', '17170', 'talentmatch');
@@ -31,13 +25,13 @@ $roww = mysqli_fetch_assoc($queryy);
 	<a href="#" id="link1" class="active" onclick="mydashboardcompany(); activatelink1()">My Dashboard</a>
 	<a href="#" id="link2" onclick="jobscompany(); activatelink2()">Jobs</a>
 	<a href="#" id="link3" onclick="internshipscompany(); activatelink3()">Internships</a>
-	<a href="#" id="link4" onclick="applicantscompany();activatelink4()">Potential Employees</a>
+	<a href="#" id="link4" onclick="applicantscompany();activatelink4()">Short-listed</a>
     </nav>
 </div>
 <!-- division containig search bar with profilepic -->
 <div class="upperbar">
 	<input type="text" name="searchbar" class="seachbar" placeholder="Search for any Job">
-	<img src="<?php echo 'companylogos/' . $row['Companylogo'] ?>" class="logoutpic" onerror="this.src='img/add.svg'">
+	<img src="<?php echo 'companylogos/' . $row['Companylogo'] ?>" class="logoutpic" onerror="this.src='img/defaultppp.png'">
 	<img src="img/arrow.svg" class="arrow" onclick="logout()">
 	<div class="logoutoptions" id="logout">
 		<nav>
@@ -87,7 +81,7 @@ $roww = mysqli_fetch_assoc($queryy);
 <!-- Quick facts about  the user -->
 <div class="shortbio" >
   <div class="profile">
-	<img src="<?php echo 'companylogos/' . $row['Companylogo'] ?>" onerror="this.src='img/add.svg'" class="profilepic">
+	<img src="<?php echo 'companylogos/' . $row['Companylogo'] ?>" onerror="this.src='img/defaultppp.png'" class="profilepic">
 	<img class="changepp" src="img/edit.svg" onclick="changepicture()">
 	<!-- <img src="" class="changepp"> -->
 </div>
@@ -209,7 +203,7 @@ $roww = mysqli_fetch_assoc($queryy);
 </div>
     <div class="postajob" id="postajob">
     	<h1>Post a job</h1>
-    	<form method="post">
+    	<form method="post" enctype="multipart/form-data">
     		<label class="label1">Job title</label><br>
     		<input type="text" name="jobtitle" class="jobtitle" style="width: 400px;"><br>
     		<label class="label2">Job deadline</label><br>
@@ -219,7 +213,7 @@ $roww = mysqli_fetch_assoc($queryy);
     		<label class="label4">Job Field</label><br>
     		<input type="text" name="jobfield" class="other"><br>
     		<label class="label5">Job description(Pdf only)</label><br>
-    		<input type="file" name="jobdescription" accept="Application/pdf" class="other"><br>
+    		<input type="file" name="jobdescriptionpdf" accept="Application/pdf" class="other"><br>
     		<input type="submit" name="jobsubmit" value="Post">
     	</form>
     </div>
@@ -273,7 +267,7 @@ $roww = mysqli_fetch_assoc($queryy);
 </div>
     <div class="postajob" id="postinternship">
     	<h1>Post an internship</h1>
-    	<form method="post">
+    	<form method="post"  enctype="multipart/form-data">
     		<label class="label1">Internship title</label><br>
     		<input type="text" name="internshiptitle" class="jobtitle" style="width: 400px;"><br>
     		<label class="label2">Internship deadline</label><br>
@@ -283,7 +277,7 @@ $roww = mysqli_fetch_assoc($queryy);
     		<label class="label4">Internship Field</label><br>
     		<input type="text" name="internshipfield" class="other"><br>
     		<label class="label5">Internship description(Pdf only)</label><br>
-    		<input type="file" name="internshipdescription" accept="Application/pdf" class="other"><br>
+    		<input type="file" name="internshipdescriptionpdf" accept="Application/pdf" class="other"><br>
     		<input type="submit" name="internshipsubmit" value="Post">
     	</form>
     </div>
@@ -291,6 +285,27 @@ $roww = mysqli_fetch_assoc($queryy);
 
  <!-- Applicants section for company -->
  <div id="applicants">
+ 	<table>
+ 		<tr>
+ 			<th>Job title</th>
+ 			<th>Shortlisted candidates</th>
+ 		</tr>
+    <?php  
+    $result = mysqli_query($dbconnect, "SELECT * FROM jobsposting where Email='$email'");
+  
+  while ($mydata = mysqli_fetch_assoc($result)) 
+  	{ $myid = $mydata['ID'];
+  		
+ ?>
+ 		<tr>
+ 			<td><?php echo $mydata['Jobtitle'];  ?></td>
+ 			<td><a href="shortlisted.php?Jobname=<?php echo $mydata['Jobtitle'] ?>"><button>View</button></a></td>
+ 		</tr>
+ 	?>
+ 	 <?php 
+   
+  }?>
+ 	</table>
  </div>
 </body>
 </html>

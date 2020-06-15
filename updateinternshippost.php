@@ -1,10 +1,5 @@
 <?php
-session_start();
-if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 
-header ("Location: employeeseekerlogin.php");
-
-}
  include('serverlesscompany.php');
 $dbconnect=mysqli_connect('localhost', 'HABUWITEKA', '17170', 'talentmatch');
 if (isset($_POST['updateinternship'])) {
@@ -14,10 +9,22 @@ if (isset($_POST['updateinternship'])) {
     $location = mysqli_real_escape_string($dbconnect, $_POST['updateinternshiplocation']);
     $deadline = mysqli_real_escape_string($dbconnect, $_POST['updateinternshipdeadline']);
     $industry = mysqli_real_escape_string($dbconnect, $_POST['updateinternshipfield']);
-    $description = mysqli_real_escape_string($dbconnect, $_POST['updateinternshipdescription']);
-    $result = "UPDATE internshipposting SET Internshiptitle='$title', Deadline='$deadline', location='$location', Internshipindustry='$industry', internshipdescriptionpdf='$description' WHERE ID=$idd";
+    // $description = mysqli_real_escape_string($dbconnect, $_POST['updateinternshipdescription']);
+    $result = "UPDATE internshipposting SET Internshiptitle='$title', Deadline='$deadline', location='$location', Internshipindustry='$industry WHERE ID=$idd";
     mysqli_query($dbconnect, $result);
     header('location:employeeseekerdashboard.php');
+     //pdf saving
+   $profileImageName = time() . '-' . $_FILES["updateinternshipdescription"]["name"];
+    // For pdf upload
+    $target_dir = "internshipdescriptions/";
+    $target_file = $target_dir . basename($profileImageName);
+    
+      if(move_uploaded_file($_FILES["internshipdescriptionpdf"]["tmp_name"], $target_file)) {
+        $sql = "UPDATE internshipposting SET internshipdescriptionpdf='$profileImageName' WHERE email='$email'";
+        if(mysqli_query($dbconnect, $sql)){
+          header('location:employeeseekerdashboard.php');
+      }
+  }
     # code...
   //   echo "<tr>";
 		// echo "<td>".$mydata['ID']."</td>";
@@ -87,7 +94,7 @@ while($res = mysqli_fetch_array($result))
 ?>
 <div class="updateajob" id="updateajob">
     <h1>Update internship</h1>
-    	<form method="POST">
+    	<form method="POST" enctype="multipart/form-data">
     		<input type="hidden" name="ID" value=<?php echo $id;?>>
     		<label class="label1">Internship title</label><br>
     		<input type="text" name="updateinternshiptitle" class="jobtitle" style="width: 400px;" value="<?php echo $internshiptitle; ?>"><br>

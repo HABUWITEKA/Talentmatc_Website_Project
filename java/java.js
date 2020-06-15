@@ -1,32 +1,21 @@
-
 function step1display(){
   var step1 = document.getElementById("Step1");
   var step2=document.getElementById("Step2");
-  var next2 = document.getElementById("next2");
   var next1 = document.getElementById("next1");
-  var back1 = document.getElementById("back1");
   step2.style.display="none";
   step1.style.display="block";
-  next2.style.display="none";
   next1.style.display="block";
-  back1.style.display="none";
   
 }
 function step2display(){
 	var step1 = document.getElementById("Step1");
 	var step2 = document.getElementById("Step2");
-	var step3 = document.getElementById("Step3");
     var next1 = document.getElementById("next1");
-    var next2 = document.getElementById("next2");
-    var back1 = document.getElementById("back1");
     var back2 = document.getElementById("back2");
 	step1.style.display = "none";
 	step2.style.display ="block";
-	step3.style.display="none";
 	next1.style.display="none";
-	next2.style.display="block";
-	back1.style.display="block";
-	back2.style.display="none";
+	
 }
 function step1companydisplay(){
 	var step1 = document.getElementById("Step1");
@@ -331,6 +320,12 @@ function changepicture(){
 	profilepicture.style.display="block";
 	console.log(1);
 }
+//profile picture editing /toggle
+function uploaddocument(){
+	var documents = document.getElementById("documentupload");
+	documents.style.display="block";
+	console.log(1);
+}
 
 //displaying job dexcription and applying to the job
 
@@ -446,30 +441,36 @@ function close3(){
 	var bioedit= document.getElementById("bioedit");
 	bioedit.style.display="none";
 }
-//slide functions
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
+function close4(){
+	var documents= document.getElementById("documentupload");
+	documents.style.display="none";
 }
 
-function currentSlide(n) {
-  showSlides(slideIndex = n);
+function currentslide1() {
+	var slides1 = document.getElementById("slides1");
+	var slides2 = document.getElementById("slides2");
+	var slides3 = document.getElementById("slides3");
+
+	slides1.style.display="block";
+	slides2.style.display="none";
+	slides3.style.display="none";
 }
 
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("slides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++){
-      slides[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++){
-      dots[i].className = dots[i].className.replace(" activeslide", "");
-  }
-  slides[slideIndex-1].style.display="block";  
-  dots[slideIndex-1].className += " activeslide";
+function currentslide2() {
+	var slides1 = document.getElementById("slides1");
+	var slides2 = document.getElementById("slides2");
+	var slides3 = document.getElementById("slides3");
+
+	slides1.style.display="none";
+	slides2.style.display="block";
+	slides3.style.display="none";
+}
+function currentslide3() {
+	var slides1 = document.getElementById("slides1");
+	var slides2 = document.getElementById("slides2");
+	var slides3 = document.getElementById("slides3");
+
+	slides1.style.display="none";
+	slides2.style.display="none";
+	slides3.style.display="block";
 }

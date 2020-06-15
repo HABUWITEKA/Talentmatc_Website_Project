@@ -10,7 +10,7 @@
 	<script type="text/javascript" src="java/java.js"></script>
 </head>
 <body>
-  <p class="alternatives alternatives2">Already a member of TalentMatch, <span><a href="employeeseekerlogin.php">Sign in</a></span></p>
+  <p class="alternatives alternatives2">Already a member of Talent Match, <span><a href="employeeseekerlogin.php">Sign in</a></span></p>
    <div id="Step1">
     <h1 class="step">Account Setup</h1>
     <!-- form for step1 -->
@@ -35,7 +35,11 @@
       <input type="text" name="Website" placeholder="Company Website" required><br>
       <label>Industry<span>*</span></label>
     	<input type="text" name="Industry" placeholder="Company Industry" required><br><br>
+      <input class="next finish finish2" type="submit" name="submitemployeeseeker" value="Finish">
+</form>
+<button class="backbtn2" id="" onclick="step1companydisplay()">Back</button>
     </section>
+
  </div>
 
  <div id="Step3">
@@ -44,14 +48,11 @@
  	<label>Company Bio (Only pdf)<span>[optional]</span></label><br>
  	<input type="file" name="Companybio" accept="Application/pdf">
   </section>	
- <input class="next finish" type="submit" name="submitemployeeseeker" value="Finish">
-</form>
+ 
 </div>
 <!-- List of all next buttons to be clicked to arrive to the next stage -->
-<button class="next" id="back1company" onclick="step1companydisplay()">Back</button>
-<button class="next" id="back2company" onclick="step2companydisplay()">Back</button>
+
 <button class="next" id="next1" onclick="step2companydisplay()">Next</button>
-<button class="nextcompany" id="next2company" onclick="step3companydisplay()">Next</button>
 
 </body>
 </html>

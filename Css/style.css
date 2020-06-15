@@ -11,15 +11,28 @@ body{
 
 .ourlogo{
 	height: 80px;
-	left: 1000px;
-	top: 100px;
+	left: 300px;
+	top: 40px;
 	position: relative;
+}
+.watchme{
+	font-family: verdana;
+	font-size: 30px;
+	width: 400px;
+	text-align: center;
+	font-weight: bolder;
+	margin: 0;
+	margin-right: -50%;
+	transform: translate(-50%,50%);
+	left: 50%;
+	top: 100px;
+	position: absolute;
 }
 .button-container{
 	/*width: 850px;*/
 	height: 200px;
 	top: 255px;
-	left: 795px;
+	left: 855px;
 	position: absolute;
 
 }
@@ -54,7 +67,7 @@ body{
 	margin: 0;
 	margin-right: -50%;
 	transform: translate(-50%,50%);
-	left: 50%;
+	left:1100px;
 	top: 70px;
 	position: absolute;
 

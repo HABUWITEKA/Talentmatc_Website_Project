@@ -1,12 +1,8 @@
 <?php
-session_start();
-if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 
-header ("Location: jobseekerlogin.php");
 
-}
  include('serverlesscompany.php');
- session_get_cookie_params();
+ $email=$_SESSION['email'];
 $dbconnect=mysqli_connect('localhost', 'HABUWITEKA', '17170', 'talentmatch');
 ?>
    <?php
@@ -15,7 +11,8 @@ $id = isset($_GET['ID']) ? $_GET['ID'] : '';
 
 //selecting data associated with this particular id
 $result = mysqli_query($dbconnect, "SELECT * FROM internshipposting WHERE ID='$id'");
-
+$queryy = mysqli_query($dbconnect, "SELECT * FROM studentusers WHERE email = '$email'");
+$row = mysqli_fetch_assoc($queryy);
 while($res = mysqli_fetch_array($result))
 {
     $internshiptitle = $res['Internshiptitle'];
@@ -30,14 +27,13 @@ $anotherresult = mysqli_query($dbconnect, "SELECT * FROM comapnyusers WHERE emai
 while ($anotheres=mysqli_fetch_array($anotherresult)) {
     $companyimage = $anotheres['Companylogo'];
     $companyname = $anotheres['companyname'];
-
 }
 ?>
 <!-- Php side of keeping track of who applied -->
 <?php
 if (isset($_POST['applyinternship'])) {
-    $useremail = $_SESSION['email'];
-    $save = "INSERT INTO internshipapplication(Email, Company, Internshipname, Internshipdeadline, Internshipfield) VALUES ('$useremail','$companyname', '$internshiptitle', '$internshipdeadline', '$internshipindustry')";
+   
+    $save = "INSERT INTO internshipapplication(Email, Company, Internshipname, Internshipdeadline, Internshipfield) VALUES ('$email','$companyname', '$internshiptitle', '$internshipdeadline', '$internshipindustry')";
     mysqli_query($dbconnect, $save);
 }
 
@@ -76,7 +72,7 @@ if (isset($_POST['applyinternship'])) {
     <input type="password" name="passwordupdate" placeholder="New Password" value="<?php echo $row['Password'] ?>">
     <input type="password" name="confirmpasswordupdate" placeholder="Confirm New Password">
     <label class="label4">Telephone</label>
-    <input type="tel" name="telephoneupdate" value="0787282620">
+    <input type="tel" name="telephoneupdate" value="<?php echo $row['telephone'] ?>">
     <input type="submit" name="saveaccountsettings" value="Save">
 </form>
 </div>
@@ -91,7 +87,7 @@ if (isset($_POST['applyinternship'])) {
             <p class="desc">Deadline: <?php echo $internshipdeadline; ?></p>
         </div>
         <h1>Job Description</h1>
-        <iframe src="assignment.pdf.pdf"></iframe>
+        <iframe src="internshipdescriptions/<?php echo $internshipdescription; ?>"></iframe>
         <!-- Submit documents needed for the -->
         <h1 class="doc">Submit documents</h1>
         <form method="post">
@@ -99,7 +95,7 @@ if (isset($_POST['applyinternship'])) {
             <label class="label">Upload your Cover letter(Only Pdf)</label>
             <input type="file" name="cvforjob" accept="Application/pdf">
             <input type="file" name="letterforjob" accept="Application/pdf">
-            <input type="submit" name="applyinternship" value="Submit" onclick="alert('Thank you! we will reach out to you ASAP!'), window.close()">
+            <input type="submit" name="applyinternship" value="Submit">
         </form>
     </div>
 </body>

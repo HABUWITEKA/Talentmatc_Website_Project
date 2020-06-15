@@ -1,10 +1,10 @@
 <?php
-session_start();
-if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
+// session_start();
+// if (!(isset($_SESSION['login']) && $_SESSION['login'] != '')) {
 
-header ("Location: employeeseekerlogin.php");
+// header ("Location: employeeseekerlogin.php");
 
-}
+// }
  include('serverlesscompany.php');
 $dbconnect=mysqli_connect('localhost', 'HABUWITEKA', '17170', 'talentmatch');
 if (isset($_POST['updatejob'])) {
@@ -14,10 +14,22 @@ if (isset($_POST['updatejob'])) {
     $location = mysqli_real_escape_string($dbconnect, $_POST['updatejoblocation']);
     $deadline = mysqli_real_escape_string($dbconnect, $_POST['updatejobdeadline']);
     $industry = mysqli_real_escape_string($dbconnect, $_POST['updatejobfield']);
-    $description = mysqli_real_escape_string($dbconnect, $_POST['updatejobdescription']);
-    $result = "UPDATE jobsposting SET Jobtitle='$title', Deadline='$deadline', location='$location', Jobindustry='$industry', jobdescriptionpdf='$description' WHERE ID=$idd";
+    // $description = mysqli_real_escape_string($dbconnect, $_POST['updatejobdescription']);
+    $result = "UPDATE jobsposting SET Jobtitle='$title', Deadline='$deadline', location='$location', Jobindustry='$industry' WHERE ID=$idd";
     mysqli_query($dbconnect, $result);
-    header('location:employeeseekerdashboard.php');
+    header('location:#');
+     //pdf saving
+   $profileImageName = time() . '-' . $_FILES["updatejobdescription"]["name"];
+    // For pdf upload
+    $target_dir = "Jobdescriptions/";
+    $target_file = $target_dir . basename($profileImageName);
+    
+      if(move_uploaded_file($_FILES["updatejobdescription"]["tmp_name"], $target_file)) {
+        $sql = "UPDATE jobsposting SET jobdescriptionpdf='$profileImageName' WHERE ID=$idd";
+        if(mysqli_query($dbconnect, $sql)){
+          header('location:employeeseekerdashboard.php');
+      }
+  }
     # code...
   //   echo "<tr>";
 		// echo "<td>".$mydata['ID']."</td>";
@@ -87,7 +99,7 @@ while($res = mysqli_fetch_array($result))
 ?>
 <div class="updateajob" id="updateajob">
     <h1>Update Job</h1>
-    	<form method="POST">
+    	<form method="POST"  enctype="multipart/form-data">
     		<input type="hidden" name="ID" value=<?php echo $id;?>>
     		<label class="label1">Job title</label><br>
     		<input type="text" name="updatejobtitle" class="jobtitle" style="width: 400px; color: black;" value="<?php echo $jobtitle; ?>" ><br>
@@ -98,7 +110,7 @@ while($res = mysqli_fetch_array($result))
     		<label class="label4">Job Field</label><br>
     		<input type="text" name="updatejobfield" class="other" value="<?php echo $jobindustry; ?>"><br>
     		<label class="label5">Job description(Pdf only)</label><br>
-    		<input type="file" name="updatejobdescription" accept="Application/pdf" class="other" value="<?php echo $jobdescription; ?>"><br>
+    		<input type="file" name="updatejobdescription" accept="Application/pdf" class="other" ?>"><br>
     		<input type="submit" name="updatejob" value="Update">
     	</form>
     </div>

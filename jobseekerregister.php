@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="java/java.js"></script>
 </head>
 <body>
-	  <p class="alternatives">Already a member of TalentMatch, <span><a href="jobseekerlogin.php">Sign in</a></span></p>
+	  <p class="alternatives">Already a member of Talent Match, <span><a href="jobseekerlogin.php">Sign in</a></span></p>
    <div id="Step1">
 	 
     <h1 class="step">Account Setup</h1>
@@ -41,24 +41,18 @@
       <label>Degree<span>*</span></label>
     	<input type="text" name="Degree" placeholder="Degree(Faculty)" required="fill it"><br>
       <label>Graduation Date<span>*</span></label>
-    	<input type="Month" name="Graduation" placeholder="Date of graduation" value="January" required>
-    </section>
- </div>
- <div id="Step3">
- 	<h1 class="step3">Documents upload</h1>
-   <section id="step3form">
- 	<label>Resume/CV (Pdf only)<span>[optional]</span></label><br>
- 	<input type="file" name="resume" accept="Application/pdf">
-  </section>	
+    	<input type="Month" name="Graduation" placeholder="Date of graduation" required>
+      <input class="next finish" type="submit" name="submitjobseeker" value="Finish">
+       </form>
+       <button class="backbtn" id="" onclick="step1display()">Back</button>
 
- <input class="next finish" type="submit" name="submitjobseeker" value="Finish">
-</form>
+    </section> 
  </div>
 <!-- List of all next buttons to be clicked to arrive to the next stage -->
-<button class="next back1" id="back1" onclick="step1display()">Back</button>
-<button class="next back2" id="back2" onclick="step2display()">Back</button>
+
+<!-- <button class="next back2" id="back2" onclick="step2display()">Back</button> -->
 <button class="next" id="next1" onclick="step2display()">Next</button>
-<button class="next" id="next2" onclick="step3display()">Next</button>
+<!-- <button class="next" id="next2" onclick="step3display()">Next</button> -->
 
 </body>
 </html>

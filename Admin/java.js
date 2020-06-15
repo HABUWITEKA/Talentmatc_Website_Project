@@ -44,3 +44,19 @@ function section4display() {
 	section3.style.display="none";
 	section4.style.display="block";
 }
+function call() {
+	var calldiv = document.getElementById("call");
+	calldiv.style.display="block";
+}
+function closecall(){
+	var calldiv = document.getElementById("call");
+	calldiv.style.display="none";
+}
+function email() {
+	var emaildiv = document.getElementById("email");
+	emaildiv.style.display="block";
+}
+function closeemail(){
+	var emaildiv = document.getElementById("email");
+	emaildiv.style.display="none";
+}
