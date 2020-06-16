@@ -87,7 +87,7 @@ body{
  .registered{
  	border-color: #4a161a;
  }
-
+/*
  .number{
  	color: black;
  	font-weight: bolder;
@@ -98,7 +98,7 @@ body{
  	transform: translate(-50%,50%);
  	left: 50%;
  	position: absolute;
- }
+ }*/
  .definition{
  	color: #000000;
  	font-family: verdana;
@@ -260,7 +260,19 @@ table th {
 	display: none;
 	width: 1100px;
 }
+#onlinecompanyusers{
+	display: none;
+	width: 1100px;
+}
 #onlineusers h1{
+   font-family: verdana;
+   font-size: 25px;
+   top: 60px;
+   position: absolute;
+   left: 325px;
+   border-bottom: 2px solid #E43456;
+}
+#onlinecompanyusers h1{
    font-family: verdana;
    font-size: 25px;
    top: 60px;
@@ -621,6 +633,17 @@ table th {
 	margin-right: -50%;
  	transform: translate(-50%,-50%);
  	left: 50%;
+ 	top: 50px;
+ 	position: absolute;
+ 	font-family: verdana;
+ 	font-size: 70px;
+ 	color: white;
+}
+.number2{
+	margin: 0;
+	margin-right: -50%;
+ 	transform: translate(-50%,-50%);
+ 	left: 50%;
  	top: 50%;
  	position: absolute;
  	font-family: verdana;
@@ -641,6 +664,13 @@ table th {
 	top: 200px;
 	left: 200px;
 	position: relative;
+	display: none;
+}
+#internshipsection{
+	top: 200px;
+	left: 200px;
+	position: relative;
+	display: none;
 }
 
 #tablejobs{

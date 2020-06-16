@@ -31,6 +31,8 @@
     	<input type="text" name="CompanyName" placeholder="Company Name" required><br>
       <label>Telephone<span>*</span></label>
     	<input type="text" name="Telephone" placeholder="Telephone Number" required><br>
+      <label>Location<span>*</span></label>
+      <input type="text" name="Location" placeholder="Location" required><br>
       <label>Website<span>*</span></label>
       <input type="text" name="Website" placeholder="Company Website" required><br>
       <label>Industry<span>*</span></label>

@@ -52,14 +52,25 @@ if (isset($_POST['applyjob'])) {
 
       if(move_uploaded_file($_FILES["jobresume"]["tmp_name"], $target_file)) {
         $sql = "UPDATE applications SET Resume='$profileImageName' WHERE email='$email' AND Jobname='$jobtitle' ";
-        mysqli_query($dbconnect, $sql);
-        
+        mysqli_query($dbconnect, $sql);     
       } 
-    
+  }
+  if (isset($_POST['applyjob'])) {
+    // for the database
+    $profileImageName = time() . '-' . $_FILES["jobcoverletter"]["name"];
+    // For image upload
+    $target_dir = "Admin/Jobcoverletters/";
+    $target_file = $target_dir . basename($profileImageName);
+    // VALIDATION
+    // Upload image only if no errors
+
+      if(move_uploaded_file($_FILES["jobcoverletter"]["tmp_name"], $target_file)) {
+        $sql = "UPDATE applications SET Coverletter='$profileImageName' WHERE email='$email' AND Jobname='$jobtitle' ";
+        mysqli_query($dbconnect, $sql);     
+      } 
   }
 
  ?>
-   
 <!-- The html part of our code for a good look -->
 <!DOCTYPE html>
 <html>
@@ -120,7 +131,7 @@ if (isset($_POST['applyjob'])) {
             <label class="label">Upload your Resume/CV(Only Pdf)</label>
             <label class="label">Upload your Cover letter(Only Pdf)</label>
             <input type="file" name="jobresume" accept="Application/pdf">
-            <input type="file" name="jobletter" accept="Application/pdf">
+            <input type="file" name="jobcoverletter" accept="Application/pdf">
             <input type="submit" name="applyjob" value="Submit">
         </form>
     </div>

@@ -36,6 +36,34 @@ if (isset($_POST['applyinternship'])) {
     $save = "INSERT INTO internshipapplication(Email, Company, Internshipname, Internshipdeadline, Internshipfield) VALUES ('$email','$companyname', '$internshiptitle', '$internshipdeadline', '$internshipindustry')";
     mysqli_query($dbconnect, $save);
 }
+if (isset($_POST['applyinternship'])) {
+    // for the database
+    $profileImageName = time() . '-' . $_FILES["internshipresume"]["name"];
+    // For image upload
+    $target_dir = "Admin/Internshipresumes/";
+    $target_file = $target_dir . basename($profileImageName);
+    // VALIDATION
+    // Upload image only if no errors
+
+      if(move_uploaded_file($_FILES["internshipresume"]["tmp_name"], $target_file)) {
+        $sql = "UPDATE internshipapplication SET Resume='$profileImageName' WHERE email='$email' AND Internshiptitle='$intenrshiptitle' ";
+        mysqli_query($dbconnect, $sql);     
+      } 
+  }
+  if (isset($_POST['applyinternship'])) {
+    // for the database
+    $profileImageName = time() . '-' . $_FILES["internshipcoverletter"]["name"];
+    // For image upload
+    $target_dir = "Admin/Internshipcoverletters/";
+    $target_file = $target_dir . basename($profileImageName);
+    // VALIDATION
+    // Upload image only if no errors
+
+      if(move_uploaded_file($_FILES["internshipcoverletter"]["tmp_name"], $target_file)) {
+        $sql = "UPDATE internshipapplication SET Coverletter='$profileImageName' WHERE email='$email' AND Internshiptitle='$intenrshiptitle'  ";
+        mysqli_query($dbconnect, $sql);     
+      } 
+  }
 
  ?>
    
@@ -90,11 +118,11 @@ if (isset($_POST['applyinternship'])) {
         <iframe src="internshipdescriptions/<?php echo $internshipdescription; ?>"></iframe>
         <!-- Submit documents needed for the -->
         <h1 class="doc">Submit documents</h1>
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <label class="label">Upload your Resume/CV(Only Pdf)</label>
             <label class="label">Upload your Cover letter(Only Pdf)</label>
-            <input type="file" name="cvforjob" accept="Application/pdf">
-            <input type="file" name="letterforjob" accept="Application/pdf">
+            <input type="file" name="internshipresume" accept="Application/pdf">
+            <input type="file" name="internshipcoverletter" accept="Application/pdf">
             <input type="submit" name="applyinternship" value="Submit">
         </form>
     </div>

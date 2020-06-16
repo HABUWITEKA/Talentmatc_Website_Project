@@ -18,7 +18,7 @@ if (isset($_POST['submitemployeeseeker'])) {
 	$Website = mysqli_real_escape_string($connection, $_POST['Website']);
   $Industry = mysqli_real_escape_string($connection, $_POST['Industry']);
 	$Bio = mysqli_real_escape_string($connection, $_POST['Companybio']);
-  
+  $location = mysqli_real_escape_string($connection, $_POST['Location']);
 
 	// form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
@@ -40,7 +40,7 @@ if (isset($_POST['submitemployeeseeker'])) {
   if (count($errors) == 0) {
     $password_hash = md5($Password);//encrypt the password before saving in the database
 
-    $query = "INSERT INTO comapnyusers (companyname,email, telephone,password,Website,Industry,Companybio) VALUES ('$Companyname','$Email','$Telephone','$password_hash','$Website','$Industry','$Bio')";
+    $query = "INSERT INTO comapnyusers (companyname,email, telephone,password,Website,Industry,location) VALUES ('$Companyname','$Email','$Telephone','$password_hash','$Website','$Industry','$location')";
     mysqli_query($connection, $query);
     // $_SESSION['username'] = $username;
     // $_SESSION['success'] = "You are now logged in";

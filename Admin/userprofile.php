@@ -46,7 +46,7 @@ if (isset($_POST['Deleteuser'])) {
 		<button class="btn" onclick="section2display()">Applications history</button>
 		<button class="btn" onclick="section3display()">Session details</button>
         <button class="btn" style="background: red;" onclick="section4display()">Remove</button>
-	<img src="profile.jpg" class="userpicture">
+	<img src="<?php echo 'Profilepictures - Jobseeker/'. $mydata['profilepicture'] ?>" class="userpicture">
 	<p class="username"><?php echo $mydata['Fullname'] ?></p>
 	<p class="joininginfo">Joined May 2019</p>
 	<!-- Contact buttons to call or directly email the user -->
@@ -61,11 +61,11 @@ if (isset($_POST['Deleteuser'])) {
     <!-- Pop ups when wanting to call or email -->
     <div id="call">
     	<img src="close.png" class="closeimg close1" onclick="closecall()">
-    	<p class="number">+250<?php echo $mydata['telephone'] ?></p>
+    	<p class="number2">+250<?php echo $mydata['telephone'] ?></p>
     </div>
      <div id="email">
     	<img src="close.png" class="closeimg close1" onclick="closeemail()">
-    	<a href="mailto:<?php echo $mydata['email'] ?>" class="number">Email me now!</a>
+    	<a href="mailto:<?php echo $mydata['email'] ?>" class="number2">Email me now!</a>
     </div>
 
     <!-- Section -->

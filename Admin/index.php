@@ -5,8 +5,17 @@ $dbconnect=mysqli_connect('localhost', 'HABUWITEKA', '17170', 'talentmatch');
 $query = mysqli_query($dbconnect, "SELECT * FROM studentusers");
 $query2 = mysqli_query($dbconnect, "SELECT * FROM studentprofiles");
 $row = mysqli_fetch_assoc($query);
-?>
 
+$mysql = "SELECT COUNT(*) FROM studentusers";
+$results = mysqli_query($dbconnect, $mysql);
+$count = mysqli_fetch_assoc($results)['COUNT(*)'];
+
+$mysql_2 = "SELECT COUNT(*) FROM comapnyusers";
+$results_2 = mysqli_query($dbconnect, $mysql_2);
+$count_2 = mysqli_fetch_assoc($results_2)['COUNT(*)'];
+
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +31,7 @@ $row = mysqli_fetch_assoc($query);
 	<a href="#" id="link1" class="active" onclick="jobseeker(); activatelink1()">Job seekers</a>
 	<a href="#" id="link2" onclick="company(); activatelink2()">Companies</a>
   <a href="#" id="link3" onclick="job();activatelink3()">Jobs</a>
+  <a href="#" id="link4" onclick="internship();activatelink4()">Internships</a>
     </nav>
 </div>
 <div class="upperbar">
@@ -40,16 +50,16 @@ $row = mysqli_fetch_assoc($query);
 	<!-- Online users overview -->
   <div id="Overview">	
 	<div class="overview">
-		<p class="number">20</p>
-		<p class="definition">Online users now</p>
+		<p class="number"><?php echo $count ?></p>
+		<p class="definition">Registered users</p>
 		<button class="viewbtn" onclick="displayonlineusers()">View</button>
 	</div>
 	
 	<!-- registered users overview -->
 	<div class="overview registered">
-		<p class="number">200</p>
+		<!-- <p class="number">200</p>
 		<p class="definition">Registered users</p>
-		<button class="viewbtn">View</button>
+		<button class="viewbtn">View</button> -->
 	</div>
 	<!-- Most famous job application -->
 	<div class="famousjob">
@@ -168,7 +178,7 @@ $row = mysqli_fetch_assoc($query);
 
 	<!-- display onlineusers -->
 	<div id="onlineusers">
-		<h1>Online users now!</h1>
+		<h1>Registered users</h1>
 		
       <?php 
   
@@ -178,7 +188,7 @@ $row = mysqli_fetch_assoc($query);
     { 
       
  ?><div class="profile">
-      <img class="userpicture" src="<?php echo 'Profilepictures - Jobseeker/' . $row['profilepicture'] ?>" onerror="this.src='close.png'">
+      <img class="userpicture" src="<?php echo 'Profilepictures - Jobseeker/' . $mydata['profilepicture'] ?>" onerror="this.src='close.png'">
            <p class="username"><?php echo $mydata['Fullname'] ?></p>
            <a href="userprofile.php?Fullname=<?php echo $mydata['Fullname'] ?>" target="_blank"><button class="viewbtn">Visit</button></a>
            </div>
@@ -195,22 +205,44 @@ $row = mysqli_fetch_assoc($query);
 <!-- Company overview -->
 <div id="companies">
 	<!-- Online company users overview -->
+ <div id="companyoverview">
 	<div class="overview">
-		<p class="number">2</p>
-		<p class="definition">Online users now</p>
-		<button class="viewbtn">View</button>
+		<p class="number"><?php echo $count_2;  ?></p>
+		<p class="definition">Registered companies</p>
+		<button class="viewbtn" onclick="displaycompanyonlineusers()">View</button>
 	</div>
 	<!-- registered company users overview -->
 	<div class="overview registered">
-		<p class="number">20</p>
+		<!-- <p class="number">20</p>
 		<p class="definition">Registered users</p>
-		<button class="viewbtn">View</button>
+		<button class="viewbtn">View</button> -->
 	</div>
+</div> 
+  <div id="onlinecompanyusers">
+    <h1>Registered companies</h1>
+    
+      <?php 
+  
+  $result = mysqli_query($dbconnect, "SELECT * FROM comapnyusers");
+  
+  while ($mydata = mysqli_fetch_assoc($result)) 
+    { 
+      
+ ?><div class="profile">
+      <img class="userpicture" src="<?php echo 'companylogos/' . $mydata['Companylogo'] ?>" onerror="this.src='close.png'">
+           <p class="username"><?php echo $mydata['companyname'] ?></p>
+           <a href="userprofile.php?companyname=<?php echo $mydata['companyname'] ?>" target="_blank"><button class="viewbtn">Visit</button></a>
+           </div>
+  <?php 
+   
+  }?> 
+  </div>
+
 </div>
 
 
 
-<!-- Company overview -->
+<!-- Jobs-->
 <div id="jobs">
   <section id="jobsection">
     <table id="tablejobs">
@@ -238,9 +270,39 @@ $row = mysqli_fetch_assoc($query);
   <?php 
    
   }?>
-  ?>
+    </table>
+</section>
+</div>
 
 
+<!-- Jinternships-->
+<div id="internship">
+  <section id="internshipsection">
+    <table id="tablejobs">
+      <tr>
+         <th>Internship Id</th>
+         <th>Internship Title</th>
+         <th>Action</th>
+      </tr>
+      <?php 
+  
+  $result = mysqli_query($dbconnect, "SELECT * FROM internshipposting");
+  
+  while ($all = mysqli_fetch_assoc($result)) 
+    { 
+      
+ ?>
+      <tr>
+      <td><?php echo $all['ID'] ?></td>
+      <td><?php echo $all['Internshiptitle'] ?></td>
+      <td>
+       <a href="applicantsinternship.php?Internshipname=<?php echo $all['Internshiptitle'] ?>"><button>View Applicants</button></a>
+        <button>Delete Internship</button>
+      </td>
+    </tr>
+  <?php 
+   
+  }?>
     </table>
 </section>
 </div>
